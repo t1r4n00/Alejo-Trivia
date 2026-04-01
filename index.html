@@ -18,7 +18,14 @@
     h1 {
       text-align: center;
       font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    #welcomeName {
+      text-align: center;
+      font-size: 20px;
       margin-bottom: 20px;
+      font-weight: bold;
     }
 
     #timer {
@@ -32,15 +39,6 @@
     label, p {
       font-size: 18px;
       margin-bottom: 8px;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      font-size: 18px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-bottom: 20px;
     }
 
     .option {
@@ -79,8 +77,8 @@
 
 <h1>Alejo Family Trivia</h1>
 
-<label>Your Name:</label>
-<input id="playerName" type="text" placeholder="Enter your name">
+<!-- Name loaded from welcome page -->
+<p id="welcomeName"></p>
 
 <div id="timer">50</div>
 
@@ -98,7 +96,7 @@
   <label class="option"><input type="radio" name="q2" value="C"> The Shawshank Redemption</label>
   <label class="option"><input type="radio" name="q2" value="D"> Forrest Gump</label>
 
-  <p>3. In Back to the Future, what year does Marty McFly travel back to when he first uses the DeLorean? </p>
+  <p>3. In Back to the Future, what year does Marty McFly travel back to when he first uses the DeLorean?</p>
   <label class="option"><input type="radio" name="q3" value="A"> 1955</label>
   <label class="option"><input type="radio" name="q3" value="B"> 1962</label>
   <label class="option"><input type="radio" name="q3" value="C"> 1947</label>
@@ -107,7 +105,54 @@
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
 
-<script src="script.js"></script>
+<script>
+// Load name from welcome page
+const savedName = localStorage.getItem("playerName") || "Unknown";
+document.getElementById("welcomeName").innerText = "Player: " + savedName;
+
+let timeLeft = 50;
+let timer = setInterval(() => {
+  timeLeft--;
+  document.getElementById("timer").innerText = timeLeft;
+
+  if (timeLeft <= 0) {
+    clearInterval(timer);
+    submitQuiz();
+  }
+}, 1000);
+
+function submitQuiz() {
+  clearInterval(timer);
+
+  const name = savedName;
+  const form = document.getElementById("quizForm");
+  const data = new FormData(form);
+
+  const answers = { q1: "B", q2: "D", q3: "A" };
+
+  let score = 0;
+  let q1 = data.get("q1");
+  let q2 = data.get("q2");
+  let q3 = data.get("q3");
+
+  if (q1 === answers.q1) score += 1;
+  if (q2 === answers.q2) score += 2;
+  if (q3 === answers.q3) score += 3;
+
+  fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      name: name,
+      score: score,
+      q1: q1,
+      q2: q2,
+      q3: q3
+    })
+  });
+
+  alert("Time's up! Your score: " + score);
+}
+</script>
 
 </body>
 </html>
