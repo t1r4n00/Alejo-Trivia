@@ -17,7 +17,7 @@ function submitQuiz() {
   const data = new FormData(form);
 
   // Correct answers
-  const answers = { q1: "B", q2: "A", q3: "B" };
+  const answers = { q1: "B", q2: "D", q3: "A" };
 
   let score = 0;
   let q1 = data.get("q1");
