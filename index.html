@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alejo Trivia</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    #timer { font-size: 32px; font-weight: bold; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+<h1>Daily Family Trivia</h1>
+
+<label>Your Name:</label><br>
+<input id="playerName" type="text" placeholder="Enter your name"><br><br>
+
+<div id="timer">60</div>
+
+<form id="quizForm">
+
+  <p>1. Which household item was originally invented to clean wallpaper?</p>
+  <input type="radio" name="q1" value="A"> Sponge<br>
+  <input type="radio" name="q1" value="B"> Play-Doh<br>
+  <input type="radio" name="q1" value="C"> Baking soda<br><br>
+
+  <p>2. Which Mexican leader said “El respeto al derecho ajeno es la paz”?</p>
+  <input type="radio" name="q2" value="A"> Benito Juárez<br>
+  <input type="radio" name="q2" value="B"> Emiliano Zapata<br>
+  <input type="radio" name="q2" value="C"> Porfirio Díaz<br><br>
+
+  <p>3. Who released the hit song “Blinding Lights”?</p>
+  <input type="radio" name="q3" value="A"> Drake<br>
+  <input type="radio" name="q3" value="B"> The Weeknd<br>
+  <input type="radio" name="q3" value="C"> Bruno Mars<br><br>
+
+  <button type="button" onclick="submitQuiz()">Submit</button>
+</form>
+
+<script src="script.js"></script>
+
+</body>
+</html>
