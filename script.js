@@ -1,4 +1,4 @@
-let timeLeft = 60;
+let timeLeft = 45;
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("timer").innerText = timeLeft;
@@ -24,9 +24,9 @@ function submitQuiz() {
   let q2 = data.get("q2");
   let q3 = data.get("q3");
 
-  if (q1 === answers.q1) score++;
-  if (q2 === answers.q2) score++;
-  if (q3 === answers.q3) score++;
+  if (q1 === answers.q1) score+=1;
+  if (q2 === answers.q2) score+=2;
+  if (q3 === answers.q3) score+=3;
 
   // Send to Google Sheets
   fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
