@@ -1,4 +1,4 @@
-let timeLeft = 45;
+let timeLeft = 50;
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("timer").innerText = timeLeft;
