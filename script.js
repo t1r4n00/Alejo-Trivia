@@ -29,7 +29,7 @@ function submitQuiz() {
   if (q3 === answers.q3) score++;
 
   // Send to Google Sheets
-  fetch("YOUR_WEB_APP_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
     method: "POST",
     body: JSON.stringify({
       name: name,
