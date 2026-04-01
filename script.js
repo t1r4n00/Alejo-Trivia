@@ -12,7 +12,7 @@ let timer = setInterval(() => {
 function submitQuiz() {
   clearInterval(timer);
 
-  const name = document.getElementById("playerName").value || "Unknown";
+  const name = localStorage.getItem("playerName") || "Unknown";
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
