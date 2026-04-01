@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alejo Family Trivia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background: #f7f7f7;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      font-size: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 22px;
+      background: #0275d8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Welcome to Alejo Family Trivia!</h1>
+
+<p style="font-size:18px;">Enter your name to begin</p>
+
+<input id="playerName" type="text" placeholder="Your name">
+
+<button onclick="startQuiz()">Start Quiz</button>
+
+<script>
+  function startQuiz() {
+    const name = document.getElementById("playerName").value.trim();
+
+    if (!name) {
+      alert("Please enter your name");
+      return;
+    }
+
+    // Save name for the quiz page
+    localStorage.setItem("playerName", name);
+
+    // Go to quiz page
+    window.location.href = "quiz.html";
+  }
+</script>
+
+</body>
+</html>
