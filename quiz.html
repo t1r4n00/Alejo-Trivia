@@ -80,27 +80,27 @@
 <!-- Name loaded from welcome page -->
 <p id="welcomeName"></p>
 
-<div id="timer">50</div>
+<div id="timer">45</div>
 
 <form id="quizForm">
 
-  <p>1. In the Lion King, what kind of animal is Timon?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Warthog</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Meerkat</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Hyena</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Lemur</label>
+  <p>1. What traditional Mexican dish is made by wrapping corn dough (masa) around a filling and steaming it in a corn husk?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Tostadas</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Tamales</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Chilaquiles</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Pozole</label>
 
-  <p>2. Which 1990s movie features the line "Life is like a box of chocolates"?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Jerry Maguire</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Sleepless in Seattle</label>
-  <label class="option"><input type="radio" name="q2" value="C"> The Shawshank Redemption</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Forrest Gump</label>
+  <p>2. What is the name of the Mexican holiday that honors deceased loved one with altars, marigolds and offerings?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Dia de Muertos</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Grito de Dolores</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Cinco de Mayo</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Las Posadas</label>
 
-  <p>3. In Back to the Future, what year does Marty McFly travel back to when he first uses the DeLorean?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> 1955</label>
-  <label class="option"><input type="radio" name="q3" value="B"> 1962</label>
-  <label class="option"><input type="radio" name="q3" value="C"> 1947</label>
-  <label class="option"><input type="radio" name="q3" value="D"> 1970</label>
+  <p>3. Which Mexican musical genre originated in the state of Veracruz and blends Indigenous, Spanish, and African influences, often featuring the jarana and requinto?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Norte&ntilde;o</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Son Jarocho</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Banda</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Huapango</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -128,7 +128,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "D", q3: "A" };
+  const answers = { q1: "B", q2: "A", q3: "B" };
 
   let score = 0;
   let q1 = data.get("q1");
