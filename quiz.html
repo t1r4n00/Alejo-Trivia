@@ -71,6 +71,21 @@
     button:active {
       background: #025aa5;
     }
+
+#floatingTimer {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #d9534f;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+	
   </style>
 </head>
 <body>
@@ -80,27 +95,27 @@
 <!-- Name loaded from welcome page -->
 <p id="welcomeName"></p>
 
-<div id="timer">45</div>
+<div id="floatingTimer">45</div>
 
 <form id="quizForm">
 
-  <p>1. What traditional Mexican dish is made by wrapping corn dough (masa) around a filling and steaming it in a corn husk?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Tostadas</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Tamales</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Chilaquiles</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Pozole</label>
+  <p>1. What is the largest planet in our solar system?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Earth</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Jupiter</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Saturn</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Mars</label>
 
-  <p>2. What is the name of the Mexican holiday that honors deceased loved one with altars, marigolds and offerings?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Dia de Muertos</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Grito de Dolores</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Cinco de Mayo</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Las Posadas</label>
+  <p>2. Which element on the periodic table is represented by the symbol “Fe”?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Fluorine</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Feldspar</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Francium</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Iron</label>
 
-  <p>3. Which Mexican musical genre originated in the state of Veracruz and blends Indigenous, Spanish, and African influences, often featuring the jarana and requinto?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Norte&ntilde;o</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Son Jarocho</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Banda</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Huapango</label>
+  <p>3. Which ancient civilization is credited with developing the first known writing system, cuneiform?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Sumerians</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Greeks</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Egyptians</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Phoenicians</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -113,7 +128,7 @@ document.getElementById("welcomeName").innerText = "Player: " + savedName;
 let timeLeft = 45;
 let timer = setInterval(() => {
   timeLeft--;
-  document.getElementById("timer").innerText = timeLeft;
+  document.getElementById("floatingTimer").innerText = timeLeft;
 
   if (timeLeft <= 0) {
     clearInterval(timer);
@@ -128,7 +143,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "A", q3: "B" };
+  const answers = { q1: "B", q2: "D", q3: "A" };
 
   let score = 0;
   let q1 = data.get("q1");
