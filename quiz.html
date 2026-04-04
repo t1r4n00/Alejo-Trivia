@@ -99,23 +99,23 @@
 
 <form id="quizForm">
 
-  <p>1. What city did Braulio live in the longest growing up?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Oakland</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Los Angeles</label>
-  <label class="option"><input type="radio" name="q1" value="C"> San Leandro</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Gridley</label>
+  <p>1. Which singer is known for the hit song "Shake It Off"?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Dua Lipa</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Ariana Grande</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Selena Gomez</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Taylor Swift</label>
 
-  <p>2. What is Braulio's favorite hobby?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Soccer</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Softball</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Video games</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Running</label>
+  <p>2. Which streaming service released the series "Stranger Things"?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Netflix</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Disney+</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Amazon Prime Video</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Hulu</label>
 
-  <p>3. What is Braulio's favorite music genre?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Country</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Rap</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Jazz</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Corridos</label>
+  <p>3. Which actor voices Mario in the 2023 animated film "The Super Mario Bros. Movie"?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Jack Black</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Chris Pratt</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Charlie Day</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Seth Rogen</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -143,17 +143,18 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "A", q3: "D" };
+  const answers = { q1: "D", q2: "A", q3: "B" };
 
   let score = 0;
   let q1 = data.get("q1");
   let q2 = data.get("q2");
   let q3 = data.get("q3");
 
-  if (q1 === answers.q1) score += 0.5;
-  if (q2 === answers.q2) score += 0.5;
-  if (q3 === answers.q3) score += 0.5;
+  if (q1 === answers.q1) score += 1;
+  if (q2 === answers.q2) score += 2;
+  if (q3 === answers.q3) score += 3;
 
+  // Send to Google Sheets
   fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
     method: "POST",
     body: JSON.stringify({
@@ -165,7 +166,26 @@ function submitQuiz() {
     })
   });
 
-  alert("Time's up! Your score: " + score);
+  // Hide the quiz
+  form.style.display = "none";
+
+  // Show final score on the page
+  const resultBox = document.createElement("div");
+  resultBox.style.marginTop = "30px";
+  resultBox.style.padding = "20px";
+  resultBox.style.background = "white";
+  resultBox.style.borderRadius = "8px";
+  resultBox.style.fontSize = "22px";
+  resultBox.style.textAlign = "center";
+  resultBox.style.boxShadow = "0 2px 6px rgba(0,0,0,0.15)";
+
+  resultBox.innerHTML = `
+    <h2>Quiz Complete!</h2>
+    <p><strong>${name}</strong>, your final score is:</p>
+    <p style="font-size: 40px; color: #0275d8; font-weight: bold;">${score}</p>
+  `;
+
+  document.body.appendChild(resultBox);
 }
 </script>
 
