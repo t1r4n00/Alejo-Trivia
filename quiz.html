@@ -99,23 +99,23 @@
 
 <form id="quizForm">
 
-  <p>1. Which household appliance is typically used to remove wrinkles from clothing?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Humidifier</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Toaster</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Blender</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Iron</label>
+  <p>1. Which country is home to the ancient city of Petra?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Jordan</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Egypt</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Greece</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Turkey</label>
 
-  <p>2. What does the “snooze” button on an alarm clock usually do?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Turns the alarm off permanently</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Delays the alarm for a short period</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Changes the alarm tone</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Makes the alarm louder</label>
+  <p>2. The Silk Road primarily connected China with which major region?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Australia</label>
+  <label class="option"><input type="radio" name="q2" value="B"> South America</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Western Europe</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Southern Africa</label>
 
-  <p>3. Which of the following items is most commonly found on a standard household utility bill?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Streaming service subscription</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Car insurance premium</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Grocery expenses</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Electricity usage</label>
+  <p>3. Which empire was ruled by Mansa Musa, often considered one of the wealthiest individuals in history?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> The Mongol Empire</label>
+  <label class="option"><input type="radio" name="q3" value="B"> The Byzantine Empire</label>
+  <label class="option"><input type="radio" name="q3" value="C"> The Ottoman Empire</label>
+  <label class="option"><input type="radio" name="q3" value="D"> The Mali Empire</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -143,7 +143,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "B", q3: "D" };
+  const answers = { q1: "A", q2: "C", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1");
