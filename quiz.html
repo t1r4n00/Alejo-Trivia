@@ -8,11 +8,16 @@
 
   <style>
     body {
+
       font-family: Arial, sans-serif;
       padding: 20px;
       max-width: 600px;
       margin: auto;
       background: #f7f7f7;
+
+	user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     }
 
     h1 {
@@ -95,27 +100,46 @@
 <!-- Name loaded from welcome page -->
 <p id="welcomeName"></p>
 
-<div id="floatingTimer">45</div>
+<div id="floatingTimer">60</div>
 
 <form id="quizForm">
 
-  <p>1. Which country is home to the ancient city of Petra?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Jordan</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Egypt</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Greece</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Turkey</label>
+  <p>1. Which artist is known as the “Queen of Soul”?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Patti LaBelle</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Diana Ross</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Whitney Houston</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Aretha Franklin</label>
 
-  <p>2. The Silk Road primarily connected China with which major region?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Australia</label>
-  <label class="option"><input type="radio" name="q2" value="B"> South America</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Western Europe</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Southern Africa</label>
+  <p>2. Which American artist is credited with the 1965 hit “Like a Rolling Stone”?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Bob Dylan</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Paul Simon</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Tommy Petty</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Bruce Springsteen</label>
 
-  <p>3. Which empire was ruled by Mansa Musa, often considered one of the wealthiest individuals in history?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> The Mongol Empire</label>
-  <label class="option"><input type="radio" name="q3" value="B"> The Byzantine Empire</label>
-  <label class="option"><input type="radio" name="q3" value="C"> The Ottoman Empire</label>
-  <label class="option"><input type="radio" name="q3" value="D"> The Mali Empire</label>
+  <p>3. Which composer is responsible for "Einstein on the Beach?"</p>
+  <label class="option"><input type="radio" name="q3" value="A"> John Williams</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Aaron Copland</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Philip Glass</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Leonard Bernstein</label>
+
+<p>4. Which Colombian singer achieved global success with albums like "Dónde Están los Ladrones?"</p>
+<label class="option"><input type="radio" name="q4" value="A"> Paulina Rubio</label>
+<label class="option"><input type="radio" name="q4" value="B"> Shakira</label>
+<label class="option"><input type="radio" name="q4" value="C"> Thal&iacutea</label>
+<label class="option"><input type="radio" name="q4" value="D"> Gloria Trevi</label>
+
+<p>5. Which genre originated in the Dominican Republic and is known for its fast-paced rhythm?</p>
+<label class="option"><input type="radio" name="q5" value="A"> Merengue</label>
+<label class="option"><input type="radio" name="q5" value="B"> Salsa</label>
+<label class="option"><input type="radio" name="q5" value="C"> Bachata</label>
+<label class="option"><input type="radio" name="q5" value="D"> Cumbia</label>
+
+<p>6. Which Puerto Rican salsa icon was known as “El Cantante de los Cantantes”?</p>
+<label class="option"><input type="radio" name="q6" value="A"> Hector Lavoe</label>
+<label class="option"><input type="radio" name="q6" value="B"> Tito Puente</label>
+<label class="option"><input type="radio" name="q6" value="C"> Cheo Feliciano</label>
+<label class="option"><input type="radio" name="q6" value="D"> Willie Colon</label>
+
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -125,7 +149,7 @@
 const savedName = localStorage.getItem("playerName") || "Unknown";
 document.getElementById("welcomeName").innerText = "Player: " + savedName;
 
-let timeLeft = 45;
+let timeLeft = 60;
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("floatingTimer").innerText = timeLeft;
@@ -143,16 +167,30 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "A", q2: "C", q3: "D" };
+  const answers = { 
+    q1: "D", 
+    q2: "A", 
+    q3: "C",
+    q4: "B",
+    q5: "A",
+    q6: "A"
+  };
 
   let score = 0;
+
   let q1 = data.get("q1");
   let q2 = data.get("q2");
   let q3 = data.get("q3");
+  let q4 = data.get("q4");
+  let q5 = data.get("q5");
+  let q6 = data.get("q6");
 
-  if (q1 === answers.q1) score += 1;
-  if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 3;
+  if (q1 === answers.q1) score += 0.5;
+  if (q2 === answers.q2) score += 1;
+  if (q3 === answers.q3) score += 1.5;
+  if (q4 === answers.q4) score += 0.5;
+  if (q5 === answers.q5) score += 1;
+  if (q6 === answers.q6) score += 1.5;
 
   // Send to Google Sheets
   fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
@@ -162,7 +200,10 @@ function submitQuiz() {
       score: score,
       q1: q1,
       q2: q2,
-      q3: q3
+      q3: q3,
+      q4: q4,
+      q5: q5,
+      q6: q6
     })
   });
 
@@ -187,6 +228,20 @@ function submitQuiz() {
 
   document.body.appendChild(resultBox);
 }
+
+// Disable right‑click
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
+
+// Disable copy, cut, paste, and text selection
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+
+// Disable text selection (prevents highlighting)
+document.addEventListener("selectstart", e => e.preventDefault());
+
 </script>
 
 </body>
