@@ -104,23 +104,23 @@
 
 <form id="quizForm">
 
-  <p>1. Which country has a town where it’s illegal to die?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Japan</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Italy</label>
-  <label class="option"><input type="radio" name="q1" value="C"> France</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Norway</label>
+  <p>1. In the Harry Potter films, what creature delivers messages for wizards?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> House‑elves</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Hippogriffs</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Owls</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Goblins</label>
 
-  <p>2. What is true about the Eiffel Tower?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> It was originally painted black</label>
-  <label class="option"><input type="radio" name="q2" value="B"> It can grow more than 6 inches taller in summer</label>
-  <label class="option"><input type="radio" name="q2" value="C"> It was built upside‑down and flipped</label>
-  <label class="option"><input type="radio" name="q2" value="D"> It was meant to rotate slowly</label>
+  <p>2. Which movie became the first R‑rated film in history to cross $1 billion at the global box office?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Joker</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Deadpool</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Oppenheimer</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Avatar</label>
 
-  <p>3. What is true about octopus blood?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> It's blue</label>
-  <label class="option"><input type="radio" name="q3" value="B"> It glows in the dark</label>
-  <label class="option"><input type="radio" name="q3" value="C"> It’s thicker than honey</label>
-  <label class="option"><input type="radio" name="q3" value="D"> It contains caffeine</label>
+  <p>3. In the series The Mandalorian, what is the real name of “Baby Yoda”?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Tarre</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Ezra</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Grogu</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Neeku</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -148,16 +148,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "B", q3: "A" };
+  const answers = { q1: "C", q2: "A", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1");
   let q2 = data.get("q2");
   let q3 = data.get("q3");
 
-  if (q1 === answers.q1) score += 2;
+  if (q1 === answers.q1) score += 1;
   if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 2;
+  if (q3 === answers.q3) score += 3;
 
   // Send to Google Sheets
   fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
