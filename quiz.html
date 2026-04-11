@@ -104,23 +104,23 @@
 
 <form id="quizForm">
 
-  <p>1. In the Harry Potter films, what creature delivers messages for wizards?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> House‑elves</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Hippogriffs</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Owls</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Goblins</label>
+  <p>1. In basic physics, what does a Newton measure?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Energy</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Force</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Pressure</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Electric charge</label>
 
-  <p>2. Which movie became the first R‑rated film in history to cross $1 billion at the global box office?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Joker</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Deadpool</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Oppenheimer</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Avatar</label>
+  <p>2. Which part of a computer is responsible for performing arithmetic and logical operations?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> GPU</label>
+  <label class="option"><input type="radio" name="q2" value="B"> RAM</label>
+  <label class="option"><input type="radio" name="q2" value="C"> CPU</label>
+  <label class="option"><input type="radio" name="q2" value="D"> SSD</label>
 
-  <p>3. In the series The Mandalorian, what is the real name of “Baby Yoda”?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Tarre</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Ezra</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Grogu</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Neeku</label>
+  <p>3. In chemistry, what is the primary reason salt dissolves in water?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Water molecules break salt into ions through polarity</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Salt reacts chemically with oxygen in the water</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Salt melts due to water’s temperature</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Water molecules compress salt crystals until they separate</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -148,7 +148,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "A", q3: "C" };
+  const answers = { q1: "B", q2: "C", q3: "A" };
 
   let score = 0;
   let q1 = data.get("q1");
