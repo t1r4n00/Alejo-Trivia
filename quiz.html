@@ -104,23 +104,23 @@
 
 <form id="quizForm">
 
-  <p>1. Which country is traditionally associated with the dish "paella"? </p>
-  <label class="option"><input type="radio" name="q1" value="A"> Italy</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Greece</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Spain</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Portugal</label>
+  <p>1. Which country is famous for the dish poutine, made with fries, cheese curds, and gravy?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> United States</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Canada</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Belgium</label>
+  <label class="option"><input type="radio" name="q1" value="D"> France</label>
 
-  <p>2. Which Southeast Asian country is known for the fermented fish sauce called "prahok"?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Cambodia</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Thailand</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Vietnam</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Laos</label>
+  <p>2. Which country is known for mochi, a traditional sweet made from glutinous rice pounded into a sticky dough?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Japan</label>
+  <label class="option"><input type="radio" name="q2" value="B"> China</label>
+  <label class="option"><input type="radio" name="q2" value="C"> South Korea</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Taiwan</label>
 
-  <p>3. Which country’s cuisine features the dish injera, a sour fermented flatbread made from teff?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Morocco</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Ethiopia</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Sudan</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Tunisia</label>
+  <p>3. Which country’s cuisine features ceviche as a national dish, traditionally made with raw fish cured in citrus juice?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Colombia</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Ecuador</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Chile</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Peru</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -148,7 +148,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "A", q3: "B" };
+  const answers = { q1: "B", q2: "A", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1");
