@@ -3,27 +3,41 @@
 <head>
   <title>Family Trivia</title>
 
-  <!-- Mobile scaling -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-
       font-family: Arial, sans-serif;
       padding: 20px;
       max-width: 600px;
       margin: auto;
-      background: #f7f7f7;
-
-	user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+      background: linear-gradient(180deg, #f0f4ff, #ffffff);
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
     }
 
     h1 {
       text-align: center;
-      font-size: 26px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 5px;
+      color: #1a3d8f;
+      font-weight: bold;
+    }
+
+    /* ⭐ Season 2 Banner */
+    .seasonBanner {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff7b00, #ffcc00);
+      color: #222;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px auto 20px auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      letter-spacing: 1px;
+      text-align: center;
     }
 
     #welcomeName {
@@ -31,30 +45,45 @@
       font-size: 20px;
       margin-bottom: 20px;
       font-weight: bold;
+      color: #444;
     }
 
-    #timer {
-      font-size: 40px;
+    #floatingTimer {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #d9534f;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: 22px;
       font-weight: bold;
-      text-align: center;
-      margin: 20px 0;
-      color: #d9534f;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 9999;
     }
 
-    label, p {
-      font-size: 18px;
-      margin-bottom: 8px;
+    p {
+      font-size: 19px;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
     }
 
     .option {
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 12px;
       background: white;
       border-radius: 6px;
       margin-bottom: 10px;
       border: 1px solid #ddd;
       font-size: 18px;
+      transition: 0.15s;
+    }
+
+    .option:hover {
+      background: #eef4ff;
+      border-color: #bcd0ff;
     }
 
     .option input {
@@ -65,39 +94,27 @@
     button {
       width: 100%;
       padding: 15px;
-      font-size: 20px;
-      background: #0275d8;
+      font-size: 22px;
+      background: #1a73e8;
       color: white;
       border: none;
       border-radius: 6px;
       margin-top: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      transition: 0.2s;
     }
 
-    button:active {
-      background: #025aa5;
+    button:hover {
+      background: #155ec2;
     }
-
-#floatingTimer {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: #d9534f;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 50px;
-  font-size: 22px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  z-index: 9999;
-}
-	
   </style>
 </head>
 <body>
 
 <h1>Alejo Family Trivia</h1>
 
-<!-- Name loaded from welcome page -->
+<div class="seasonBanner">SEASON 2</div>
+
 <p id="welcomeName"></p>
 
 <div id="floatingTimer">45</div>
@@ -126,10 +143,11 @@
 </form>
 
 <script>
-// Load name from welcome page
+// Load name
 const savedName = localStorage.getItem("playerName") || "Unknown";
 document.getElementById("welcomeName").innerText = "Player: " + savedName;
 
+// Timer
 let timeLeft = 45;
 let timer = setInterval(() => {
   timeLeft--;
@@ -159,8 +177,7 @@ function submitQuiz() {
   if (q2 === answers.q2) score += 2;
   if (q3 === answers.q3) score += 3;
 
-  // Send to Google Sheets
-  fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
+  fetch("YOUR_WEB_APP_URL_HERE", {
     method: "POST",
     body: JSON.stringify({
       name: name,
@@ -171,10 +188,8 @@ function submitQuiz() {
     })
   });
 
-  // Hide the quiz
   form.style.display = "none";
 
-  // Show final score on the page
   const resultBox = document.createElement("div");
   resultBox.style.marginTop = "30px";
   resultBox.style.padding = "20px";
@@ -193,19 +208,12 @@ function submitQuiz() {
   document.body.appendChild(resultBox);
 }
 
-// Disable right‑click
-document.addEventListener("contextmenu", function(e) {
-  e.preventDefault();
-});
-
-// Disable copy, cut, paste, and text selection
+// Anti‑cheat
+document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("copy", e => e.preventDefault());
 document.addEventListener("cut", e => e.preventDefault());
 document.addEventListener("paste", e => e.preventDefault());
-
-// Disable text selection (prevents highlighting)
 document.addEventListener("selectstart", e => e.preventDefault());
-
 </script>
 
 </body>
