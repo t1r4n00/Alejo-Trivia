@@ -10,13 +10,41 @@
       padding: 20px;
       max-width: 600px;
       margin: auto;
-      background: #f7f7f7;
+      background: linear-gradient(180deg, #f0f4ff, #ffffff);
       text-align: center;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #1a3d8f;
+      font-weight: bold;
+    }
+
+    /* ⭐ Season 2 Banner */
+    .seasonBanner {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff7b00, #ffcc00);
+      color: #222;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
       margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #666;
     }
 
     input {
@@ -24,7 +52,7 @@
       padding: 15px;
       font-size: 20px;
       border-radius: 6px;
-      border: 1px solid #ccc;
+      border: 1px solid #bbb;
       margin-bottom: 20px;
     }
 
@@ -32,35 +60,46 @@
       width: 100%;
       padding: 15px;
       font-size: 22px;
-      background: #0275d8;
+      background: #1a73e8;
       color: white;
       border: none;
       border-radius: 6px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      transition: 0.2s;
     }
 
-#sponsorBox {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #ccc;
-  text-align: center;
-  font-size: 18px;
-  color: #555;
-}
+    button:hover {
+      background: #155ec2;
+    }
 
-#sponsorBox img {
-  margin-top: 10px;
-  max-width: 180px;
-  height: auto;
-  border-radius: 6px;
-}
+    /* Sponsor Section */
+    #sponsorBox {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+    }
 
+    #sponsorBox img {
+      margin-top: 10px;
+      max-width: 160px;
+      height: auto;
+      border-radius: 6px;
+      opacity: 0.95;
+    }
   </style>
 </head>
 <body>
 
-<h1>Welcome to Alejo Family Trivia!</h1>
-<h2>Today's topic is music</h2>
-<h3>Your time limit is 60 seconds</h3>
+<h1>Alejo Family Trivia</h1>
+
+<!-- ⭐ Season 2 Badge -->
+<div class="seasonBanner">SEASON 2</div>
+
+<h2>Today's Topic: World History / Geography</h2>
+<h3>Time Limit: 45 Seconds</h3>
 
 <p style="font-size:18px;">Enter your name to begin</p>
 
@@ -77,13 +116,11 @@
       return;
     }
 
-    // Save name for the quiz page
     localStorage.setItem("playerName", name);
-
-    // Go to quiz page
     window.location.href = "quiz.html";
   }
 </script>
+
 <div id="sponsorBox">
   <p>Sponsored by</p>
   <img src="logo.png" alt="Sponsor Logo">
