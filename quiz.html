@@ -100,46 +100,27 @@
 <!-- Name loaded from welcome page -->
 <p id="welcomeName"></p>
 
-<div id="floatingTimer">60</div>
+<div id="floatingTimer">45</div>
 
 <form id="quizForm">
 
-  <p>1. Which artist is known for the hit song “Uptown Funk”?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Justin Timberlake</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Pharrell Williams</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Usher</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Bruno Mars</label>
+  <p>1. Which river flows through the city of Paris?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Danube</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Thames</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Seine</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Rhine</label>
 
-  <p>2. Which singer is often called the “Queen of Pop”?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Lady Gaga</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Katy Perry</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Mariah Carey</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Madonna</label>
+  <p>2. Which ancient civilization built the city of Machu Picchu?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Inca</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Maya</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Olmec</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Aztec</label>
 
-  <p>3. Which artist became the first female rapper to be inducted into the Rock & Roll Hall of Fame?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Nicki Minaj</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Missy Elliott</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Queen Latifah</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Lauryn Hill</label>
-
-<p>4. Which singer is famous for songs like “Bidi Bidi Bom Bom”? </p>
-<label class="option"><input type="radio" name="q4" value="A"> Gloria Trevi</label>
-<label class="option"><input type="radio" name="q4" value="B"> Paulina Rubio</label>
-<label class="option"><input type="radio" name="q4" value="C"> Selena</label>
-<label class="option"><input type="radio" name="q4" value="D"> Ana Gabriel</label>
-
-<p>5. Which artist is known as the “King of Reggaetón”?</p>
-<label class="option"><input type="radio" name="q5" value="A"> Daddy Yankee</label>
-<label class="option"><input type="radio" name="q5" value="B"> Bad Bunny</label>
-<label class="option"><input type="radio" name="q5" value="C"> Don Omar</label>
-<label class="option"><input type="radio" name="q5" value="D"> Wisin</label>
-
-<p>6. Which singer recorded the iconic ranchera “El Rey”?</p>
-<label class="option"><input type="radio" name="q6" value="A"> Vicente Fernández</label>
-<label class="option"><input type="radio" name="q6" value="B"> Pedro Infante</label>
-<label class="option"><input type="radio" name="q6" value="C"> José Alfredo Jiménez</label>
-<label class="option"><input type="radio" name="q6" value="D"> Luis Miguel</label>
-
+  <p>3. Which empire controlled the city of Constantinople up until 1453?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Persian</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Ottoman</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Holy Roman</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Byzantine</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -149,7 +130,7 @@
 const savedName = localStorage.getItem("playerName") || "Unknown";
 document.getElementById("welcomeName").innerText = "Player: " + savedName;
 
-let timeLeft = 60;
+let timeLeft = 45;
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("floatingTimer").innerText = timeLeft;
@@ -167,30 +148,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { 
-    q1: "D", 
-    q2: "D", 
-    q3: "B",
-    q4: "C",
-    q5: "A",
-    q6: "C"
-  };
+  const answers = { q1: "C", q2: "A", q3: "D" };
 
   let score = 0;
-
   let q1 = data.get("q1");
   let q2 = data.get("q2");
   let q3 = data.get("q3");
-  let q4 = data.get("q4");
-  let q5 = data.get("q5");
-  let q6 = data.get("q6");
 
-  if (q1 === answers.q1) score += 0.5;
-  if (q2 === answers.q2) score += 1;
-  if (q3 === answers.q3) score += 1.5;
-  if (q4 === answers.q4) score += 0.5;
-  if (q5 === answers.q5) score += 1;
-  if (q6 === answers.q6) score += 1.5;
+  if (q1 === answers.q1) score += 1;
+  if (q2 === answers.q2) score += 2;
+  if (q3 === answers.q3) score += 3;
 
   // Send to Google Sheets
   fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
@@ -200,10 +167,7 @@ function submitQuiz() {
       score: score,
       q1: q1,
       q2: q2,
-      q3: q3,
-      q4: q4,
-      q5: q5,
-      q6: q6
+      q3: q3
     })
   });
 
