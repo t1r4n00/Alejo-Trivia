@@ -177,7 +177,7 @@ function submitQuiz() {
   if (q2 === answers.q2) score += 2;
   if (q3 === answers.q3) score += 3;
 
-  fetch("YOUR_WEB_APP_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
     method: "POST",
     body: JSON.stringify({
       name: name,
