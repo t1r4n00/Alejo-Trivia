@@ -121,23 +121,23 @@
 
 <form id="quizForm">
 
-  <p>1. In the Marvel films, what type of creature is Groot?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Flora colossus</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Kronan</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Frost Giant</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Celestial</label>
+  <p>1. What is one of Monse's hidden talents?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Soccer</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Situational comprehension</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Video games</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Adapability</label>
 
-  <p>2. Which TV series holds the record for the most Emmy wins of all time?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Game of Thrones</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Saturday Night Live</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Frasier</label>
-  <label class="option"><input type="radio" name="q2" value="D"> The Simpsons</label>
+  <p>2. What was the first concert Monse ever attended?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Jenni Rivera</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Junior H</label>
+  <label class="option"><input type="radio" name="q2" value="C"> La Arolladora</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Julion Alvarez</label>
 
-  <p>3. In Inception, what object does Cobb use as his personal “totem” to test reality?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> A loaded die</label>
-  <label class="option"><input type="radio" name="q3" value="B"> A poker chip</label>
-  <label class="option"><input type="radio" name="q3" value="C"> A spinning top</label>
-  <label class="option"><input type="radio" name="q3" value="D"> A coin</label>
+  <p>3. What is Monse's favorite movie?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> How to Lose a Guy in 10 Days</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Under the Same Moon</label>
+  <label class="option"><input type="radio" name="q3" value="C"> The Notebook</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Footloose</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -166,16 +166,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "A", q2: "B", q3: "C" };
+  const answers = { q1: "D", q2: "A", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1");
   let q2 = data.get("q2");
   let q3 = data.get("q3");
 
-  if (q1 === answers.q1) score += 1;
-  if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 3;
+  if (q1 === answers.q1) score += 0.5;
+  if (q2 === answers.q2) score += 0.5;
+  if (q3 === answers.q3) score += 0.5;
 
   fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
     method: "POST",
