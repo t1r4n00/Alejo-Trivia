@@ -25,7 +25,6 @@
       font-weight: bold;
     }
 
-    /* ⭐ Season 2 Banner */
     .seasonBanner {
       display: inline-block;
       background: linear-gradient(90deg, #ff7b00, #ffcc00);
@@ -121,23 +120,47 @@
 
 <form id="quizForm">
 
-  <p>1. Which ingredient is traditionally used to make mole poblano?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Lime and cilantro</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Tomatoes and oregano</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Avocado and jalapeño</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Chocolate and chiles</label>
+  <!-- ⭐ QUESTION 1 -->
+  <p>1. Which artist is known for the hit song “Happy”?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Bruno Mars</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Pharrell Williams</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Justin Timberlake</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Usher</label>
 
-  <p>2. What is the purpose of a 'calaverita' during Día de Muertos?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> To decorate Christmas trees</label>
-  <label class="option"><input type="radio" name="q2" value="B"> To humorously honor loved ones with short poems</label>
-  <label class="option"><input type="radio" name="q2" value="C"> To symbolize good luck for the new year</label>
-  <label class="option"><input type="radio" name="q2" value="D"> To mark the start of the spring season</label>
+  <!-- ⭐ QUESTION 2 -->
+  <p>2. Which American rock band is known for the classic song “Don’t Stop Believin’”?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Bon Jovi</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Aerosmith</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Journey</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Foreigner</label>
 
-  <p>3. Which region is internationally known for producing mezcal?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Oaxaca</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Chihuahua</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Yucatán</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Baja California</label>
+  <!-- ⭐ QUESTION 3 -->
+  <p>3. Which guitarist is famous for performing the “Star‑Spangled Banner” at Woodstock in 1969?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Eric Clapton</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Carlos Santana</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Jimi Hendrix</label>
+  <label class="option"><input type="radio" name="q3" value="D"> B.B. King</label>
+
+  <!-- ⭐ QUESTION 4 -->
+  <p>4. Which artist is known for the hit “La Bicicleta” alongside Carlos Vives?</p>
+  <label class="option"><input type="radio" name="q4" value="A"> Shakira</label>
+  <label class="option"><input type="radio" name="q4" value="B"> Thalía</label>
+  <label class="option"><input type="radio" name="q4" value="C"> Paulina Rubio</label>
+  <label class="option"><input type="radio" name="q4" value="D"> Karol G</label>
+
+  <!-- ⭐ QUESTION 5 -->
+  <p>5. Which singer is famous for the song “La Incondicional”?</p>
+  <label class="option"><input type="radio" name="q5" value="A"> Cristian Castro</label>
+  <label class="option"><input type="radio" name="q5" value="B"> Luis Miguel</label>
+  <label class="option"><input type="radio" name="q5" value="C"> Alejandro Fernández</label>
+  <label class="option"><input type="radio" name="q5" value="D"> Pepe Aguilar</label>
+
+  <!-- ⭐ QUESTION 6 -->
+  <p>6. Which composer wrote classics like “Amor Eterno” and “Querida”?</p>
+  <label class="option"><input type="radio" name="q6" value="A"> José José</label>
+  <label class="option"><input type="radio" name="q6" value="B"> Marco Antonio Solís</label>
+  <label class="option"><input type="radio" name="q6" value="C"> Juan Gabriel</label>
+  <label class="option"><input type="radio" name="q6" value="D"> Joan Sebastian</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -166,25 +189,38 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "B", q3: "A" };
+  // ⭐ Correct answers (placeholders)
+  const answers = { 
+    q1: "B", 
+    q2: "C", 
+    q3: "C",
+    q4: "A",
+    q5: "B",
+    q6: "C"
+  };
 
   let score = 0;
-  let q1 = data.get("q1");
-  let q2 = data.get("q2");
-  let q3 = data.get("q3");
 
-  if (q1 === answers.q1) score += 1;
-  if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 3;
+  // ⭐ Scoring (1–6 points)
+  if (data.get("q1") === answers.q1) score += 0.5;
+  if (data.get("q2") === answers.q2) score += 1;
+  if (data.get("q3") === answers.q3) score += 1.5;
+  if (data.get("q4") === answers.q4) score += 0.5;
+  if (data.get("q5") === answers.q5) score += 1;
+  if (data.get("q6") === answers.q6) score += 1.5;
 
+  // ⭐ SEND TO GOOGLE SHEETS
   fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
     method: "POST",
     body: JSON.stringify({
       name: name,
       score: score,
-      q1: q1,
-      q2: q2,
-      q3: q3
+      q1: data.get("q1"),
+      q2: data.get("q2"),
+      q3: data.get("q3"),
+      q4: data.get("q4"),
+      q5: data.get("q5"),
+      q6: data.get("q6")
     })
   });
 
