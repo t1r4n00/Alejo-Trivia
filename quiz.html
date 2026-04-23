@@ -121,23 +121,23 @@
 
 <form id="quizForm">
 
-  <p>1. Which state is known for the archaeological site of Chichén Itzá?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Campeche</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Quintana Roo</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Tabasco</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Yucatán</label>
+  <p>1. In the John Wick films, what is the name of the hotel that serves as neutral ground for assassins?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> The Meridian</label>
+  <label class="option"><input type="radio" name="q1" value="B"> The Monarch</label>
+  <label class="option"><input type="radio" name="q1" value="C"> The Continental</label>
+  <label class="option"><input type="radio" name="q1" value="D"> The Grand Chapel</label>
 
-  <p>2. Who assumed leadership of the independence movement immediately after Miguel Hidalgo was captured in 1811?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> José María Morelos</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Ignacio Allende</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Vicente Guerrero</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Mariano Matamoros</label>
+  <p>2. Which animated series features a character who constantly shouts “Wubba Lubba Dub-Dub”?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Rick and Morty</label>
+  <label class="option"><input type="radio" name="q2" value="B"> BoJack Horseman</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Solar Opposites</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Futurama</label>
 
-  <p>3. Which mountain is the highest peak in Mexico?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Nevado de Toluca</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Popocatépetl</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Pico de Orizaba</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Iztaccíhuatl</label>
+  <p>3. In Interstellar, what is the name of the black hole the crew travels to investigate?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Leviathan</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Gargantua</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Umbra</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Kronos</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -166,7 +166,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "B", q3: "C" };
+  const answers = { q1: "C", q2: "A", q3: "B" };
 
   let score = 0;
   let q1 = data.get("q1");
