@@ -121,23 +121,23 @@
 
 <form id="quizForm">
 
-  <p>1. What gas do plants absorb during photosynthesis?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Oxygen</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Nitrogen</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Carbon dioxide</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Hydrogen</label>
+  <p>1. What does the prefix “bio‑” generally refer to in science?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Life</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Heat</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Sound</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Motion</label>
 
-  <p>2. What is the smallest country in the world by land area?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Monaco</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Liechtenstein</label>
-  <label class="option"><input type="radio" name="q2" value="C"> San Marino</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Vatican City</label>
+  <p>2. In basic electronics, what does a resistor primarily do?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Store electrical charge</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Convert AC to DC</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Amplify signals</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Limit current flow</label>
 
-  <p>3. Which element is the most abundant in the universe?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Helium</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Oxygen</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Hydrogen</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Carbon</label>
+  <p>3. In Earth science, what is the main cause of tectonic plates moving?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Earth’s magnetic field pushing them</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Pressure from ocean tides</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Heat-driven convection currents in the mantle</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Gravity pulling plates toward the equator</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -166,7 +166,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "D", q3: "C" };
+  const answers = { q1: "A", q2: "D", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1");
