@@ -121,23 +121,23 @@
 
 <form id="quizForm">
 
-  <p>1. What does the prefix “bio‑” generally refer to in science?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Life</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Heat</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Sound</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Motion</label>
+  <p>1. Which country is known for the dish baklava, a layered pastry with nuts and honey?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> India</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Argentina</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Sweden</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Turkey</label>
 
-  <p>2. In basic electronics, what does a resistor primarily do?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Store electrical charge</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Convert AC to DC</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Amplify signals</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Limit current flow</label>
+  <p>2. Which country is famous for kimchi, a fermented vegetable dish often made with napa cabbage? </p>
+  <label class="option"><input type="radio" name="q2" value="A"> South Korea</label>
+  <label class="option"><input type="radio" name="q2" value="B"> China</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Japan</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Mongolia</label>
 
-  <p>3. In Earth science, what is the main cause of tectonic plates moving?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Earth’s magnetic field pushing them</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Pressure from ocean tides</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Heat-driven convection currents in the mantle</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Gravity pulling plates toward the equator</label>
+  <p>3. Which country is known for the dish laksa, a spicy noodle soup with coconut milk or tamarind?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Malaysia</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Thailand</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Philippines</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Myanmar</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -166,7 +166,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "A", q2: "D", q3: "C" };
+  const answers = { q1: "D", q2: "A", q3: "A" };
 
   let score = 0;
   let q1 = data.get("q1");
