@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Espa&ntildeol Para El Dia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background: linear-gradient(180deg, #ffe4f2, #ffffff);
+      user-select: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 5px;
+      color: #b03060;
+      font-weight: bold;
+    }
+
+    .seasonBanner {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff9acb, #ffd6e8);
+      color: #7a2e4d;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px auto 20px auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    #floatingTimer {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #d9534f;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 9999;
+    }
+
+    .optionBlock {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 22px;
+      background: #b03060;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Espa&ntildeol del Dia</h1>
+<div class="seasonBanner">SEASON 3</div>
+
+<div id="floatingTimer">10</div>
+
+<p style="font-size:20px; font-weight:bold;">
+  4. In Argentina, what is a “bondi”?
+</p>
+
+<div class="optionBlock">
+  <label><input type="radio" name="mode" value="mcq"> Multiple Choice</label><br>
+  <label><input type="radio" name="mode" value="write"> Write the Answer</label><br>
+  <label><input type="radio" name="mode" value="mex"> Write the Mexican Equivalent</label>
+</div>
+
+<div id="mcqBlock" style="display:none; margin-bottom:15px;">
+  <label><input type="radio" name="q4" value="A"> A sandwich</label><br>
+  <label><input type="radio" name="q4" value="B"> A bus</label><br>
+  <label><input type="radio" name="q4" value="C"> A cheap wine</label><br>
+  <label><input type="radio" name="q4" value="D"> A jacket</label>
+</div>
+
+<div id="writeBlock" style="display:none; margin-bottom:15px;">
+  <input id="writtenAnswer" type="text" placeholder="Type your answer" style="width:100%; padding:10px; font-size:18px;">
+</div>
+
+<button onclick="submitSpecial()">Submit</button>
+
+<script>
+let timeLeft = 10;
+let addedTime = false;
+let submitted = false;
+
+const baseScore = Number(localStorage.getItem("baseScore") || "0");
+const name = localStorage.getItem("playerName") || "Unknown";
+const q1 = localStorage.getItem("q1") || "";
+const q2 = localStorage.getItem("q2") || "";
+const q3 = localStorage.getItem("q3") || "";
+
+// Basic guard: if no baseScore, send them back
+if (!localStorage.getItem("baseScore")) {
+  document.body.innerHTML = "<h2 style='text-align:center;'>Session expired. Please start again.</h2>";
+} else {
+  // Timer
+  var timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("floatingTimer").innerText = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      submitSpecial();
+    }
+  }, 1000);
+}
+
+// Mode switching (LOCKS mode once chosen)
+document.querySelectorAll("input[name='mode']").forEach(r => {
+  r.addEventListener("change", () => {
+    const mode = r.value;
+
+    document.getElementById("mcqBlock").style.display = mode === "mcq" ? "block" : "none";
+    document.getElementById("writeBlock").style.display = (mode === "write" || mode === "mex") ? "block" : "none";
+
+    if ((mode === "write" || mode === "mex") && !addedTime) {
+      timeLeft += 5;
+      addedTime = true;
+    }
+
+    document.querySelectorAll("input[name='mode']").forEach(m => m.disabled = true);
+  });
+});
+
+function submitSpecial() {
+  if (submitted) return;
+  submitted = true;
+  clearInterval(timer);
+
+  document.querySelectorAll("input, button").forEach(el => el.disabled = true);
+
+  const mode = document.querySelector("input[name='mode']:checked");
+  if (!mode) {
+    alert("Please choose an answer type");
+    submitted = false;
+    document.querySelectorAll("input, button").forEach(el => el.disabled = false);
+    return;
+  }
+
+  let finalScore = baseScore;
+  let q4 = "";
+  let q4_written = "";
+
+  if (mode.value === "mcq") {
+    q4 = document.querySelector("input[name='q4']:checked")?.value || "";
+    if (q4 === "B") {
+      finalScore += 2; // MCQ bonus
+    }
+  } else {
+    q4_written = document.getElementById("writtenAnswer").value.trim();
+  }
+
+  const payload = {
+    name: name,
+    score: finalScore,
+    q1: q1,
+    q2: q2,
+    q3: q3,
+    q4: q4,
+    q4_written: q4_written,
+    mode: mode.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzYWhQMA4pYWXzivVfBLTURs5vHqXwWwdn2B8zQbJGcghXIF9ZuiyG4EbWbXZMkrRN_/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  const box = document.createElement("div");
+  box.style.marginTop = "30px";
+  box.style.padding = "20px";
+  box.style.background = "white";
+  box.style.borderRadius = "8px";
+  box.style.fontSize = "22px";
+  box.style.textAlign = "center";
+
+  if (mode.value === "mcq") {
+    box.innerHTML = `
+      <h2>All Done!</h2>
+      <p>Your final score is:</p>
+      <p style="font-size:40px; color:#b03060; font-weight:bold;">${finalScore}</p>
+    `;
+  } else {
+    box.innerHTML = `
+      <h2>Answer Submitted!</h2>
+      <p>Current score: <strong>${baseScore}</strong></p>
+      <p>Final score will be determined based on your written answer.</p>
+    `;
+  }
+
+  document.body.innerHTML = "";
+  document.body.appendChild(box);
+}
+
+// Anti‑cheat basics
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+document.addEventListener("selectstart", e => e.preventDefault());
+</script>
+
+</body>
+</html>
