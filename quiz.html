@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Family Trivia</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -27,16 +26,15 @@
 
     .seasonBanner {
       display: inline-block;
-      background: linear-gradient(90deg, #ff7b00, #ffcc00);
-      color: #222;
-      padding: 8px 18px;
-      border-radius: 25px;
-      font-size: 16px;
+      background: linear-gradient(90deg, #ff9acb, #ffd6e8);
+      color: #7a2e4d;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 18px;
       font-weight: bold;
-      margin: 10px auto 20px auto;
+      margin-bottom: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       letter-spacing: 1px;
-      text-align: center;
     }
 
     #welcomeName {
@@ -111,56 +109,30 @@
 <body>
 
 <h1>Alejo Family Trivia</h1>
-
-<div class="seasonBanner">SEASON 2</div>
+<div class="seasonBanner">SEASON 3</div>
 
 <p id="welcomeName"></p>
 
-<div id="floatingTimer">60</div>
+<div id="floatingTimer">45</div>
 
 <form id="quizForm">
+  <p>1. Which civilization built the Pyramids of Giza?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Mayans</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Egyptians</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Persians</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Romans</label>
 
-  <!-- ⭐ QUESTION 1 -->
-  <p>1. Which singer is known for the hit song “Firework”?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Demi Lovato</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Katy Perry</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Pink</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Kelly Clarkson</label>
+  <p>2. Which empire controlled the largest contiguous land territoy in history?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> British Empire</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Qing Dynasty</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Ottoman Empire</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Mongol Empire</label>
 
-  <!-- ⭐ QUESTION 2 -->
-  <p>2. Which American band is famous for the song “Sweet Child O’ Mine”?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Guns N’ Roses</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Metallica</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Red Hot Chili Peppers</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Foo Fighters</label>
-
-  <!-- ⭐ QUESTION 3 -->
-  <p>3. Which iconic American singer was nicknamed “The Boss”?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Billy Joel</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Bruce Springsteen</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Jon Bon Jovi</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Tom Petty</label>
-
-  <!-- ⭐ QUESTION 4 -->
-  <p>4. Which artist is known for the hit “Ojos Así”?</p>
-  <label class="option"><input type="radio" name="q4" value="A"> Belinda</label>
-  <label class="option"><input type="radio" name="q4" value="B"> Paulina Rubio</label>
-  <label class="option"><input type="radio" name="q4" value="C"> Karol G</label>
-  <label class="option"><input type="radio" name="q4" value="D"> Shakira</label>
-
-  <!-- ⭐ QUESTION 5 -->
-  <p>5. Which Mexican group is famous for the song “Cómo Te Voy a Olvidar”?</p>
-  <label class="option"><input type="radio" name="q5" value="A"> Banda MS</label>
-  <label class="option"><input type="radio" name="q5" value="B"> Los Tigres del Norte</label>
-  <label class="option"><input type="radio" name="q5" value="C"> Los Ángeles Azules</label>
-  <label class="option"><input type="radio" name="q5" value="D"> La Arrolladora Banda El Limón</label>
-
-  <!-- ⭐ QUESTION 6 -->
-  <p>6. Which legendary Mexican singer was known as “El Príncipe de la Canción”?</p>
-  <label class="option"><input type="radio" name="q6" value="A"> José Alfredo Jiménez</label>
-  <label class="option"><input type="radio" name="q6" value="B"> José José</label>
-  <label class="option"><input type="radio" name="q6" value="C"> Juan Gabriel</label>
-  <label class="option"><input type="radio" name="q6" value="D"> Marco Antonio Solís</label>
+  <p>3. Which modern day country contains the ancient city of Persepolis?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Turkey</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Egypt</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Iran</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Greece</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -171,7 +143,7 @@ const savedName = localStorage.getItem("playerName") || "Unknown";
 document.getElementById("welcomeName").innerText = "Player: " + savedName;
 
 // Timer
-let timeLeft = 60;
+let timeLeft = 45;
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("floatingTimer").innerText = timeLeft;
@@ -182,69 +154,38 @@ let timer = setInterval(() => {
   }
 }, 1000);
 
+let submitted = false;
+
 function submitQuiz() {
+  if (submitted) return;
+  submitted = true;
   clearInterval(timer);
 
-  const name = savedName;
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  // ⭐ Correct answers (placeholders)
-  const answers = { 
-    q1: "B", 
-    q2: "A", 
-    q3: "B",
-    q4: "D",
-    q5: "C",
-    q6: "B"
-  };
+  const answers = { q1: "B", q2: "D", q3: "C" };
 
   let score = 0;
+  let q1 = data.get("q1") || "";
+  let q2 = data.get("q2") || "";
+  let q3 = data.get("q3") || "";
 
-  // ⭐ Scoring (1–6 points)
-  if (data.get("q1") === answers.q1) score += 0.5;
-  if (data.get("q2") === answers.q2) score += 1;
-  if (data.get("q3") === answers.q3) score += 1.5;
-  if (data.get("q4") === answers.q4) score += 0.5;
-  if (data.get("q5") === answers.q5) score += 1;
-  if (data.get("q6") === answers.q6) score += 1.5;
+  if (q1 === answers.q1) score += 1;
+  if (q2 === answers.q2) score += 2;
+  if (q3 === answers.q3) score += 3;
 
-  // ⭐ SEND TO GOOGLE SHEETS
-  fetch("https://script.google.com/macros/s/AKfycbylKL_UIMQHHM9a6xPYZknJ-SNvgRAEThd4BClGzfffo8ZoJUtQSVbq1UKH1FNb7CVXjw/exec", {
-    method: "POST",
-    body: JSON.stringify({
-      name: name,
-      score: score,
-      q1: data.get("q1"),
-      q2: data.get("q2"),
-      q3: data.get("q3"),
-      q4: data.get("q4"),
-      q5: data.get("q5"),
-      q6: data.get("q6")
-    })
-  });
+  // Store everything locally for the special page
+  localStorage.setItem("baseScore", String(score));
+  localStorage.setItem("q1", q1);
+  localStorage.setItem("q2", q2);
+  localStorage.setItem("q3", q3);
 
-  form.style.display = "none";
-
-  const resultBox = document.createElement("div");
-  resultBox.style.marginTop = "30px";
-  resultBox.style.padding = "20px";
-  resultBox.style.background = "white";
-  resultBox.style.borderRadius = "8px";
-  resultBox.style.fontSize = "22px";
-  resultBox.style.textAlign = "center";
-  resultBox.style.boxShadow = "0 2px 6px rgba(0,0,0,0.15)";
-
-  resultBox.innerHTML = `
-    <h2>Quiz Complete!</h2>
-    <p><strong>${name}</strong>, your final score is:</p>
-    <p style="font-size: 40px; color: #0275d8; font-weight: bold;">${score}</p>
-  `;
-
-  document.body.appendChild(resultBox);
+  // Go to special page
+  window.location.href = "special.html";
 }
 
-// Anti‑cheat
+// Anti‑cheat basics
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("copy", e => e.preventDefault());
 document.addEventListener("cut", e => e.preventDefault());
