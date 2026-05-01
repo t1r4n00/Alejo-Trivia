@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. In the TV series The Office, what is the name of Michael Scott’s self‑written action movie?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Agent Scarn Returns</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Scarn Ultimatum</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Midnight Protocol</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Threat Level Midnight</label>
+  <p>1. What does Isabella's dream profession?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Veterinarian</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Teacher</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Nail technician</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Makeup artist</label>
 
-  <p>2. Which actress voices the character Joy in Pixar’s Inside Out?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Maya Rudolph</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Amy Poehler</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Tina Fey</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Kristen Wiig</label>
+  <p>2. If Isabella could live anywhere, where would it be?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Colombia</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Cancun</label>
+  <label class="option"><input type="radio" name="q2" value="C"> San Pedro, Mich</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Manzanillo</label>
 
-  <p>3. In Blade Runner 2049, what is the designation of Ryan Gosling’s character?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> K-6</label>
-  <label class="option"><input type="radio" name="q3" value="B"> K-9</label>
-  <label class="option"><input type="radio" name="q3" value="C"> K-7</label>
-  <label class="option"><input type="radio" name="q3" value="D"> KD-9</label>
+  <p>3. Who is Isabella's favorite musical artist?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Ramon Ayala</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Karol G</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Jenni Rivera</label>
+  <label class="option"><input type="radio" name="q3" value="D"> La Santa Grifa</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,16 +164,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "B", q3: "D" };
+  const answers = { q1: "B", q2: "D", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
 
-  if (q1 === answers.q1) score += 1;
-  if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 3;
+  if (q1 === answers.q1) score += 0.5;
+  if (q2 === answers.q2) score += 0.5;
+  if (q3 === answers.q3) score += 0.5;
 
   // Store everything locally for the special page
   localStorage.setItem("baseScore", String(score));
