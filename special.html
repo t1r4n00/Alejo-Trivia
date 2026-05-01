@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Espa&ntildeol Para El Dia</title>
+  <title>Special Question</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <style>
@@ -73,26 +73,26 @@
 </head>
 <body>
 
-<h1>Espa&ntildeol del Dia</h1>
+<h1>Espanol del Dia</h1>
 <div class="seasonBanner">SEASON 3</div>
 
 <div id="floatingTimer">10</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  4. In Argentina, what is a “bondi”?
+  4. What is a traditional Mother's Day flower?
 </p>
 
 <div class="optionBlock">
   <label><input type="radio" name="mode" value="mcq"> Multiple Choice</label><br>
   <label><input type="radio" name="mode" value="write"> Write the Answer</label><br>
-  <label><input type="radio" name="mode" value="mex"> Write the Mexican Equivalent (2)</label>
+  <label><input type="radio" name="mode" value="mex"> Write the Mexican Equivalent</label>
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> A sandwich</label><br>
-  <label><input type="radio" name="q4" value="B"> A bus</label><br>
-  <label><input type="radio" name="q4" value="C"> A cheap wine</label><br>
-  <label><input type="radio" name="q4" value="D"> A jacket</label>
+  <label><input type="radio" name="q4" value="A"> Rose</label><br>
+  <label><input type="radio" name="q4" value="B"> Tulip</label><br>
+  <label><input type="radio" name="q4" value="C"> Orchid</label><br>
+  <label><input type="radio" name="q4" value="D"> Sunflower</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -105,6 +105,7 @@
 let timeLeft = 10;
 let addedTime = false;
 let submitted = false;
+let timer; // <-- GLOBAL so submitSpecial() can clear it
 
 const baseScore = Number(localStorage.getItem("baseScore") || "0");
 const name = localStorage.getItem("playerName") || "Unknown";
@@ -117,15 +118,16 @@ if (!localStorage.getItem("baseScore")) {
   document.body.innerHTML = "<h2 style='text-align:center;'>Session expired. Please start again.</h2>";
 } else {
   // Timer
-  var timer = setInterval(() => {
-    timeLeft--;
-    document.getElementById("floatingTimer").innerText = timeLeft;
+  // Timer
+timer = setInterval(() => {
+  timeLeft--;
+  document.getElementById("floatingTimer").innerText = timeLeft;
 
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      submitSpecial();
-    }
-  }, 1000);
+  if (timeLeft <= 0) {
+    clearInterval(timer);
+    submitSpecial(true); // <-- tell it this came from the timer
+  }
+}, 1000);
 }
 
 // Mode switching (LOCKS mode once chosen)
@@ -145,31 +147,40 @@ document.querySelectorAll("input[name='mode']").forEach(r => {
   });
 });
 
-function submitSpecial() {
+function submitSpecial(fromTimer = false) {
   if (submitted) return;
   submitted = true;
   clearInterval(timer);
 
   document.querySelectorAll("input, button").forEach(el => el.disabled = true);
 
-  const mode = document.querySelector("input[name='mode']:checked");
-  if (!mode) {
-    alert("Please choose an answer type");
-    submitted = false;
-    document.querySelectorAll("input, button").forEach(el => el.disabled = false);
-    return;
+  const modeInput = document.querySelector("input[name='mode']:checked");
+  let modeValue = modeInput ? modeInput.value : null;
+
+  // If time ran out and no mode was chosen, still submit as "none"
+  if (!modeValue) {
+    if (!fromTimer) {
+      // User clicked button with no selection
+      alert("Please choose an answer type");
+      submitted = false;
+      document.querySelectorAll("input, button").forEach(el => el.disabled = false);
+      return;
+    } else {
+      // Timer-based submit with no choice
+      modeValue = "none";
+    }
   }
 
   let finalScore = baseScore;
   let q4 = "";
   let q4_written = "";
 
-  if (mode.value === "mcq") {
+  if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "B") {
+    if (q4 === "A") {
       finalScore += 2; // MCQ bonus
     }
-  } else {
+  } else if (modeValue === "write" || modeValue === "mex") {
     q4_written = document.getElementById("writtenAnswer").value.trim();
   }
 
@@ -181,7 +192,7 @@ function submitSpecial() {
     q3: q3,
     q4: q4,
     q4_written: q4_written,
-    mode: mode.value
+    mode: modeValue
   };
 
   fetch("https://script.google.com/macros/s/AKfycbzYWhQMA4pYWXzivVfBLTURs5vHqXwWwdn2B8zQbJGcghXIF9ZuiyG4EbWbXZMkrRN_/exec", {
@@ -199,11 +210,17 @@ function submitSpecial() {
   box.style.fontSize = "22px";
   box.style.textAlign = "center";
 
-  if (mode.value === "mcq") {
+  if (modeValue === "mcq") {
     box.innerHTML = `
       <h2>All Done!</h2>
       <p>Your final score is:</p>
       <p style="font-size:40px; color:#b03060; font-weight:bold;">${finalScore}</p>
+    `;
+  } else if (modeValue === "none") {
+    box.innerHTML = `
+      <h2>Time's Up!</h2>
+      <p>No answer was selected in time.</p>
+      <p>Current score: <strong>${baseScore}</strong></p>
     `;
   } else {
     box.innerHTML = `
@@ -216,6 +233,7 @@ function submitSpecial() {
   document.body.innerHTML = "";
   document.body.appendChild(box);
 }
+
 
 // Anti‑cheat basics
 document.addEventListener("contextmenu", e => e.preventDefault());
