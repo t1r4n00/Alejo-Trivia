@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Special Question</title>
+  <title>Espa&ntildeol del Dia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <style>
@@ -73,26 +73,25 @@
 </head>
 <body>
 
-<h1>Espanol del Dia</h1>
+<h1>Espa&ntildeol del Dia</h1>
 <div class="seasonBanner">SEASON 3</div>
 
-<div id="floatingTimer">10</div>
+<div id="floatingTimer">15</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  4. What is a traditional Mother's Day flower?
+  "Achicopalado"
 </p>
 
 <div class="optionBlock">
   <label><input type="radio" name="mode" value="mcq"> Multiple Choice</label><br>
   <label><input type="radio" name="mode" value="write"> Write the Answer</label><br>
-  <label><input type="radio" name="mode" value="mex"> Write the Mexican Equivalent</label>
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> Rose</label><br>
-  <label><input type="radio" name="q4" value="B"> Tulip</label><br>
-  <label><input type="radio" name="q4" value="C"> Orchid</label><br>
-  <label><input type="radio" name="q4" value="D"> Sunflower</label>
+  <label><input type="radio" name="q4" value="A"> Very hungry</label><br>
+  <label><input type="radio" name="q4" value="B"> Distracted</label><br>
+  <label><input type="radio" name="q4" value="C"> Discouraged or downhearted</label><br>
+  <label><input type="radio" name="q4" value="D"> Sunburned</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -102,7 +101,7 @@
 <button onclick="submitSpecial()">Submit</button>
 
 <script>
-let timeLeft = 10;
+let timeLeft = 15;
 let addedTime = false;
 let submitted = false;
 let timer; // <-- GLOBAL so submitSpecial() can clear it
@@ -177,8 +176,8 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "A") {
-      finalScore += 2; // MCQ bonus
+    if (q4 === "C") {
+      finalScore += 1; // MCQ bonus
     }
   } else if (modeValue === "write" || modeValue === "mex") {
     q4_written = document.getElementById("writtenAnswer").value.trim();
