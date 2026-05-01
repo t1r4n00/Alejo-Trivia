@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Family Trivia</title>
+  <title>Alejo Family Trivia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which civilization built the Pyramids of Giza?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Mayans</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Egyptians</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Persians</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Romans</label>
+  <p>1. In the TV series The Office, what is the name of Michael Scott’s self‑written action movie?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Agent Scarn Returns</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Scarn Ultimatum</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Midnight Protocol</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Threat Level Midnight</label>
 
-  <p>2. Which empire controlled the largest contiguous land territoy in history?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> British Empire</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Qing Dynasty</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Ottoman Empire</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Mongol Empire</label>
+  <p>2. Which actress voices the character Joy in Pixar’s Inside Out?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Maya Rudolph</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Amy Poehler</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Tina Fey</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Kristen Wiig</label>
 
-  <p>3. Which modern day country contains the ancient city of Persepolis?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Turkey</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Egypt</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Iran</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Greece</label>
+  <p>3. In Blade Runner 2049, what is the designation of Ryan Gosling’s character?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> K-6</label>
+  <label class="option"><input type="radio" name="q3" value="B"> K-9</label>
+  <label class="option"><input type="radio" name="q3" value="C"> K-7</label>
+  <label class="option"><input type="radio" name="q3" value="D"> KD-9</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,7 +164,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "D", q3: "C" };
+  const answers = { q1: "D", q2: "B", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
