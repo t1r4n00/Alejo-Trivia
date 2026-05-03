@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which artist painted the Mona Lisa?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Vincent van Gogh</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Pablo Picasso</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Leonardo da Vinci</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Claude Monet</label>
+  <p>1. What does the acronym “GPS” stand for?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> General Pathway Signal</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Ground Projection Satellite</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Geo‑Pattern Scanner</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Global Positioning System</label>
 
-  <p>2. Mount Vesuvius is located near which modern-day Italian city?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Florence</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Naples</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Venice</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Milan</label>
+  <p>2. In basic chemistry, what is the pH value of a neutral solution at room temperature?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> 7</label>
+  <label class="option"><input type="radio" name="q2" value="B"> 5</label>
+  <label class="option"><input type="radio" name="q2" value="C"> 9</label>
+  <label class="option"><input type="radio" name="q2" value="D"> 11</label>
 
-  <p>3. Which line of latitude is located at approximately 23.5° South?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Tropic of Cancer</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Equator</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Tropic of Capricorn</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Antarctic Circle</label>
+  <p>3. In computer science, what does an algorithm primarily describe?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> A physical component of a computer</label>
+  <label class="option"><input type="radio" name="q3" value="B"> A type of computer virus</label>
+  <label class="option"><input type="radio" name="q3" value="C"> A step‑by‑step procedure for solving a problem</label>
+  <label class="option"><input type="radio" name="q3" value="D"> A programming language</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,7 +164,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "B", q3: "C" };
+  const answers = { q1: "D", q2: "A", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
