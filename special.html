@@ -79,7 +79,7 @@
 <div id="floatingTimer">15</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  Translate to English: "Chamaco de arranque"
+  Fill in the blank: “No seas tan ________, siempre exageras todo.”
 </p>
 
 <div class="optionBlock">
@@ -88,10 +88,10 @@
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> A kid who runs fast</label><br>
-  <label><input type="radio" name="q4" value="B"> A mischievous or bold kid</label><br>
-  <label><input type="radio" name="q4" value="C"> A kid who works in the fields</label><br>
-  <label><input type="radio" name="q4" value="D"> A kid who is always sleepy</label>
+  <label><input type="radio" name="q4" value="A"> cuachalote</label><br>
+  <label><input type="radio" name="q4" value="B"> barbaján</label><br>
+  <label><input type="radio" name="q4" value="C"> chocarrero</label><br>
+  <label><input type="radio" name="q4" value="D"> apantallador</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -176,7 +176,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "B") {
+    if (q4 === "D") {
       finalScore += 1; // MCQ bonus
     }
   } else if (modeValue === "write" || modeValue === "mex") {
