@@ -79,7 +79,7 @@
 <div id="floatingTimer">20</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  Translate to English: “Morralla”
+  Translate to English: “Arrejuntarse”
 </p>
 
 <div class="optionBlock">
@@ -88,10 +88,10 @@
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> Leftover food</label><br>
-  <label><input type="radio" name="q4" value="B"> Cheap clothing</label><br>
-  <label><input type="radio" name="q4" value="C"> Small change/coins</label><br>
-  <label><input type="radio" name="q4" value="D"> A messy room</label>
+  <label><input type="radio" name="q4" value="A"> To gather objects in a pile</label><br>
+  <label><input type="radio" name="q4" value="B"> To argue loudly</label><br>
+  <label><input type="radio" name="q4" value="C"> To run away</label><br>
+  <label><input type="radio" name="q4" value="D"> To move in together as a couple</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -176,7 +176,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "C") {
+    if (q4 === "D") {
       finalScore += 1; // MCQ bonus
     }
   } else if (modeValue === "write" || modeValue === "mex") {
