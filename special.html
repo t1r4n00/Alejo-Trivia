@@ -79,19 +79,19 @@
 <div id="floatingTimer">20</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  Fill in the blank: “Ese carro está bien ________, ya ni prende.”
+  Translate to English: "Faramalla"
 </p>
 
 <div class="optionBlock">
-  <label><input type="radio" name="mode" value="mcq"> Multiple Choice (1 pt)</label><br>
-  <label><input type="radio" name="mode" value="write"> Write the Answer (2 pts, +0.5 for perfect spelling)</label><br>
+  <label><input type="radio" name="mode" value="mcq"> Multiple Choice (+1 pt)</label><br>
+  <label><input type="radio" name="mode" value="write"> Write the Answer (+2 pts, +0.5 perfect spelling)</label><br>
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> tronado</label><br>
-  <label><input type="radio" name="q4" value="B"> chiflado</label><br>
-  <label><input type="radio" name="q4" value="C"> rasposo</label><br>
-  <label><input type="radio" name="q4" value="D"> tumbado</label>
+  <label><input type="radio" name="q4" value="A"> A type of street food</label><br>
+  <label><input type="radio" name="q4" value="B"> Unnecessary fuss or theatrics</label><br>
+  <label><input type="radio" name="q4" value="C"> A small tool</label><br>
+  <label><input type="radio" name="q4" value="D"> A shortcut</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -111,10 +111,6 @@ const name = localStorage.getItem("playerName") || "Unknown";
 const q1 = localStorage.getItem("q1") || "";
 const q2 = localStorage.getItem("q2") || "";
 const q3 = localStorage.getItem("q3") || "";
-const q4_main = localStorage.getItem("q4_main") || "";
-const q5 = localStorage.getItem("q5") || "";
-const q6 = localStorage.getItem("q6") || "";
-
 
 // Basic guard: if no baseScore, send them back
 if (!localStorage.getItem("baseScore")) {
@@ -180,7 +176,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "A") {
+    if (q4 === "B") {
       finalScore += 1; // MCQ bonus
     }
   } else if (modeValue === "write" || modeValue === "mex") {
@@ -193,9 +189,6 @@ function submitSpecial(fromTimer = false) {
     q1: q1,
     q2: q2,
     q3: q3,
-    q4_main: q4_main,
-    q5: q5,
-    q6: q6,
     q4: q4,
     q4_written: q4_written,
     mode: modeValue
