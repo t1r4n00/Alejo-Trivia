@@ -79,7 +79,7 @@
 <div id="floatingTimer">20</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  Translate to English: “Arrejuntarse”
+  Fill in the blank: “Ese carro está bien ________, ya ni prende.”
 </p>
 
 <div class="optionBlock">
@@ -88,10 +88,10 @@
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> To gather objects in a pile</label><br>
-  <label><input type="radio" name="q4" value="B"> To argue loudly</label><br>
-  <label><input type="radio" name="q4" value="C"> To run away</label><br>
-  <label><input type="radio" name="q4" value="D"> To move in together as a couple</label>
+  <label><input type="radio" name="q4" value="A"> tronado</label><br>
+  <label><input type="radio" name="q4" value="B"> chiflado</label><br>
+  <label><input type="radio" name="q4" value="C"> rasposo</label><br>
+  <label><input type="radio" name="q4" value="D"> tumbado</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -176,7 +176,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "D") {
+    if (q4 === "A") {
       finalScore += 1; // MCQ bonus
     }
   } else if (modeValue === "write" || modeValue === "mex") {
@@ -189,6 +189,9 @@ function submitSpecial(fromTimer = false) {
     q1: q1,
     q2: q2,
     q3: q3,
+    q4: q4_main,
+    q5: q5,
+    q6: q6,
     q4: q4,
     q4_written: q4_written,
     mode: modeValue
