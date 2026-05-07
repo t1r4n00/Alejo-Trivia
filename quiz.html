@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which dish is traditionally cooked inside a pit oven lined with maguey leaves?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Barbacoa</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Pozole</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Chiles en Nogada</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Tlayudas</label>
+  <p>1. In the TV series "The Office" (US), what is the name of the paper company where the characters work?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Dunder Mifflin</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Scranton Paper Co.</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Wernham Hogg</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Prestige Worldwide</label>
 
-  <p>2. Which state is famous for producing the majority of the country’s vanilla?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Veracruz</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Durango</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Sonora</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Chiapas</label>
+  <p>2. Which film won the Academy Award for Best Picture in 2020?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Once Upon a Time in Hollywood</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Parasite</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Joker</label>
+  <label class="option"><input type="radio" name="q2" value="D"> 1917</label>
 
-  <p>3. Which ingredient was a key protein source for the Aztecs and is harvested from Lake Texcoco?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Chapulines</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Charales</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Escamoles</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Ahuahtle</label>
+  <p>3. In the series "Westworld," what is the name of the corporation that operates the theme parks?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Helios Systems</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Tyrell Corporation</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Delos Incorporated</label>
+  <label class="option"><input type="radio" name="q3" value="D"> VirtuCorp</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,7 +164,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "A", q2: "A", q3: "D" };
+  const answers = { q1: "A", q2: "B", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
