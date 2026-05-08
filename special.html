@@ -79,7 +79,7 @@
 <div id="floatingTimer">20</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  Fill in the blank: “No le hagas caso, está puro ________.”
+  Translate to English: “Embromado”
 </p>
 
 <div class="optionBlock">
@@ -88,10 +88,10 @@
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> guateque</label><br>
-  <label><input type="radio" name="q4" value="B"> chante</label><br>
-  <label><input type="radio" name="q4" value="C"> mamey</label><br>
-  <label><input type="radio" name="q4" value="D"> borlote</label>
+  <label><input type="radio" name="q4" value="A"> In trouble or in a complicated situation</label><br>
+  <label><input type="radio" name="q4" value="B"> Covered in dust</label><br>
+  <label><input type="radio" name="q4" value="C"> Very tired</label><br>
+  <label><input type="radio" name="q4" value="D"> Slightly drunk</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -176,7 +176,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "D") {
+    if (q4 === "A") {
       finalScore += 1; // MCQ bonus
     }
   } else if (modeValue === "write" || modeValue === "mex") {
