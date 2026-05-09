@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which country has a committee designated to regulate names of newborns?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Thailand</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Mongolia</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Bhutan</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Iceland</label>
+  <p>1. Which musical instrument has 88 keys?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Violin</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Piano</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Harp</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Flute</label>
 
-  <p>2. In which country is there a train station that has no entrance or exit?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Norway</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Switzerland</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Japan</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Canada</label>
+  <p>2. What is the name of the galaxy that contains our solar system?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Andromeda</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Sombrero Galaxy</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Milky Way</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Whirlpool Galaxy</label>
 
-  <p>3. Which country once built an entire fake town on top of a factory?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> United Kingdom</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Germany</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Russia</label>
-  <label class="option"><input type="radio" name="q3" value="D"> United States</label>
+  <p>3. Which country was formerly known as Ceylon?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Myanmar</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Sri Lanka</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Cambodia</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Laos</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,16 +164,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "C", q3: "D" };
+  const answers = { q1: "B", q2: "C", q3: "B" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
 
-  if (q1 === answers.q1) score += 2;
+  if (q1 === answers.q1) score += 1;
   if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 2;
+  if (q3 === answers.q3) score += 3;
 
   // Store everything locally for the special page
   localStorage.setItem("baseScore", String(score));
