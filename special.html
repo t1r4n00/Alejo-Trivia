@@ -76,22 +76,22 @@
 <h1>Espa&ntildeol del Dia</h1>
 <div class="seasonBanner">SEASON 3</div>
 
-<div id="floatingTimer">20</div>
+<div id="floatingTimer">15</div>
 
 <p style="font-size:20px; font-weight:bold;">
-  Translate to English: “Agüitarse”
+  Translate to English: "Bagre" (slang, descriptor)
 </p>
 
 <div class="optionBlock">
-  <label><input type="radio" name="mode" value="mcq"> Multiple Choice (+1 pt)</label><br>
-  <label><input type="radio" name="mode" value="write"> Write the Answer (+2 pts, +0.5 perfect spelling)</label><br>
+  <label><input type="radio" name="mode" value="mcq"> Multiple Choice (+1)</label><br>
+  <label><input type="radio" name="mode" value="write"> Write the Answer (+2, +0.5 for perfect spelling)</label><br>
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> To get scared suddenly</label><br>
-  <label><input type="radio" name="q4" value="B"> To get drunk quickly</label><br>
-  <label><input type="radio" name="q4" value="C"> To get sad or discouraged</label><br>
-  <label><input type="radio" name="q4" value="D"> To get confused</label>
+  <label><input type="radio" name="q4" value="A"> Someone who eats too much</label><br>
+  <label><input type="radio" name="q4" value="B"> Someone unattractive</label><br>
+  <label><input type="radio" name="q4" value="C"> Someone who works very slowly</label><br>
+  <label><input type="radio" name="q4" value="D"> Someone who lies often</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -101,7 +101,7 @@
 <button onclick="submitSpecial()">Submit</button>
 
 <script>
-let timeLeft = 20;
+let timeLeft = 15;
 let addedTime = false;
 let submitted = false;
 let timer; // <-- GLOBAL so submitSpecial() can clear it
@@ -176,7 +176,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "C") {
+    if (q4 === "B") {
       finalScore += 1; // MCQ bonus
     }
   } else if (modeValue === "write" || modeValue === "mex") {
