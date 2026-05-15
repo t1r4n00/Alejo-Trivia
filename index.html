@@ -10,31 +10,35 @@
       padding: 20px;
       max-width: 600px;
       margin: auto;
-      background: linear-gradient(180deg, #f0f4ff, #ffffff);
+      background: linear-gradient(180deg, #e8f7ff, #ffffff);
       text-align: center;
     }
 
-    h1 {
-      font-size: 30px;
-      margin-bottom: 10px;
-      color: #1a3d8f;
+    /* 🔥 Season 4 Banner – Fresh, clean, modern */
+    .seasonBanner {
+      display: inline-block;
+      background: linear-gradient(90deg, #6ecbff, #b5e8ff);
+      color: #0f3d57;
+      padding: 12px 26px;
+      border-radius: 40px;
+      font-size: 20px;
       font-weight: bold;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      animation: fadeIn 0.8s ease-out;
     }
 
-    /* 🌸 Season 3 Mother's Day Banner */
-.seasonBanner {
-  display: inline-block;
-  background: linear-gradient(90deg, #ff9acb, #ffd6e8);
-  color: #7a2e4d;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  letter-spacing: 1px;
-}
-
+    /* Titles */
+    h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+      color: #0f3d57;
+      font-weight: bold;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      animation: fadeIn 0.8s ease-out;
+    }
 
     h2 {
       font-size: 22px;
@@ -48,36 +52,46 @@
       color: #666;
     }
 
+    /* Inputs */
     input {
       width: 100%;
       padding: 15px;
       font-size: 20px;
-      border-radius: 6px;
-      border: 1px solid #bbb;
+      border-radius: 8px;
+      border: 1px solid #bcd7e6;
       margin-bottom: 20px;
+      transition: 0.2s;
     }
 
+    input:focus {
+      border-color: #6ecbff;
+      box-shadow: 0 0 6px rgba(110,203,255,0.5);
+    }
+
+    /* Buttons – cleaner, more modern */
     button {
       width: 100%;
       padding: 15px;
       font-size: 22px;
-      background: #1a73e8;
+      background: linear-gradient(90deg, #007be8, #0098ff);
       color: white;
       border: none;
-      border-radius: 6px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-      transition: 0.2s;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: 0.25s;
+      cursor: pointer;
     }
 
     button:hover {
-      background: #155ec2;
+      background: linear-gradient(90deg, #0069c7, #0084e0);
+      transform: translateY(-2px);
     }
 
     /* Sponsor Section */
     #sponsorBox {
       margin-top: 40px;
       padding-top: 20px;
-      border-top: 1px solid #ccc;
+      border-top: 1px solid #c7dce8;
       text-align: center;
       font-size: 18px;
       color: #555;
@@ -87,8 +101,19 @@
       margin-top: 10px;
       max-width: 160px;
       height: auto;
-      border-radius: 6px;
+      border-radius: 8px;
       opacity: 0.95;
+      transition: 0.2s;
+    }
+
+    #sponsorBox img:hover {
+      opacity: 1;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -96,11 +121,11 @@
 
 <h1>Alejo Family Trivia</h1>
 
-<!-- ⭐ Season 2 Badge -->
+<!-- ⭐ Season 4 Badge -->
 <div class="seasonBanner">SEASON 4</div>
 
-<h2>Today's Topic: World History</h2>
-<h3>Time Limit: 45 - 65 Seconds</h3>
+<h2>Today's Topic: Pop Culture</h2>
+<h3>Time Limit: 45 Seconds</h3>
 
 <p style="font-size:18px;">Enter your name to begin</p>
 
