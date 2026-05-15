@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Family Trivia</title>
+  <title>Alejo Family Trivia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -10,99 +10,97 @@
       padding: 20px;
       max-width: 600px;
       margin: auto;
-      background: linear-gradient(180deg, #f0f4ff, #ffffff);
-      user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
+      background: linear-gradient(180deg, #e8f7ff, #ffffff);
+      text-align: center;
+    }
+
+    /* Season 4 Banner */
+    .seasonBanner {
+      display: inline-block;
+      background: linear-gradient(90deg, #6ecbff, #b5e8ff);
+      color: #0f3d57;
+      padding: 12px 26px;
+      border-radius: 40px;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
 
     h1 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 5px;
-      color: #1a3d8f;
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #0f3d57;
       font-weight: bold;
-    }
-
-    .seasonBanner {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff9acb, #ffd6e8);
-      color: #7a2e4d;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      letter-spacing: 1px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     #welcomeName {
-      text-align: center;
       font-size: 20px;
       margin-bottom: 20px;
-      font-weight: bold;
       color: #444;
     }
 
+    /* Floating Timer */
     #floatingTimer {
       position: fixed;
-      top: 10px;
-      right: 10px;
-      background: #d9534f;
+      top: 15px;
+      right: 15px;
+      background: #ff4d4d;
       color: white;
-      padding: 10px 15px;
-      border-radius: 50px;
+      padding: 12px 18px;
+      border-radius: 50%;
       font-size: 22px;
       font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      z-index: 9999;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     }
 
+    /* Question text */
     p {
-      font-size: 19px;
-      margin-bottom: 10px;
+      font-size: 20px;
       color: #333;
-      font-weight: bold;
+      text-align: left;
+      margin-top: 25px;
+      margin-bottom: 10px;
     }
 
+    /* Options */
     .option {
-      display: flex;
-      align-items: center;
+      display: block;
+      text-align: left;
+      background: #ffffff;
       padding: 12px;
-      background: white;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #bcd7e6;
+      transition: 0.2s;
       font-size: 18px;
-      transition: 0.15s;
     }
 
     .option:hover {
-      background: #eef4ff;
-      border-color: #bcd0ff;
+      background: #e8f7ff;
+      border-color: #6ecbff;
     }
 
-    .option input {
-      margin-right: 10px;
-      transform: scale(1.4);
-    }
-
+    /* Submit Button */
     button {
       width: 100%;
       padding: 15px;
       font-size: 22px;
-      background: #1a73e8;
+      background: linear-gradient(90deg, #007be8, #0098ff);
       color: white;
       border: none;
-      border-radius: 6px;
-      margin-top: 20px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-      transition: 0.2s;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: 0.25s;
+      margin-top: 25px;
     }
 
     button:hover {
-      background: #155ec2;
+      background: linear-gradient(90deg, #0069c7, #0084e0);
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -116,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which desert is the largest hot desert in the world?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Kalahari</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Sahara</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Gobi</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Great Victoria</label>
+  <p>1. In the Fast & Furious franchise, what is Dominic Toretto most famously obsessed with?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Winning trophies</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Collecting rare cars</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Street reputation</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Family</label>
 
-  <p>2. Which empire was ruled by Genghis Khan in the early 13th century?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Mongol</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Ottoman</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Mughal</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Byzantine</label>
+  <p>2. Which actress plays Eleven in the series Stranger Things?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Millie Bobby Brown</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Sadie Sink</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Maya Hawke</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Natalia Dyer</label>
 
-  <p>3. Which modern-day country contains the ancient city of Babylon?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Iran</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Turkey</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Egypt</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Iraq</label>
+  <p>3. In the film Blade Runner 2049, what is the profession of the main character, K?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Memory designer</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Blade Runner</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Replicant engineer</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Corporate archivist</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,7 +162,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "A", q3: "D" };
+  const answers = { q1: "D", q2: "A", q3: "B" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
@@ -175,13 +173,11 @@ function submitQuiz() {
   if (q2 === answers.q2) score += 2;
   if (q3 === answers.q3) score += 3;
 
-  // Store everything locally for the special page
   localStorage.setItem("baseScore", String(score));
   localStorage.setItem("q1", q1);
   localStorage.setItem("q2", q2);
   localStorage.setItem("q3", q3);
 
-  // Go to special page
   window.location.href = "special.html";
 }
 
