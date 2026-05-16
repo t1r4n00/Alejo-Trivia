@@ -114,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. In the Fast & Furious franchise, what is Dominic Toretto most famously obsessed with?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Winning trophies</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Collecting rare cars</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Street reputation</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Family</label>
+  <p>1. What school did Danny get his degree from?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Chico State</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Yuba College</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Sacramento State</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Sierra College</label>
 
-  <p>2. Which actress plays Eleven in the series Stranger Things?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Millie Bobby Brown</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Sadie Sink</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Maya Hawke</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Natalia Dyer</label>
+  <p>2. What was Danny's first vehicle?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Pontiac Grand Am</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Chevrolet Celebrity</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Ford Thunderbird</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Honda Civic</label>
 
-  <p>3. In the film Blade Runner 2049, what is the profession of the main character, K?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Memory designer</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Blade Runner</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Replicant engineer</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Corporate archivist</label>
+  <p>3. What was Danny's first job?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Mid Valley Ice</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Samuels Jewelers</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Radio Mart</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Mooney Farms</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,16 +162,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "A", q3: "B" };
+  const answers = { q1: "B", q2: "C", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
 
-  if (q1 === answers.q1) score += 1;
-  if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 3;
+  if (q1 === answers.q1) score += 0.5;
+  if (q2 === answers.q2) score += 0.5;
+  if (q3 === answers.q3) score += 0.5;
 
   localStorage.setItem("baseScore", String(score));
   localStorage.setItem("q1", q1);
