@@ -114,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. What school did Danny get his degree from?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Chico State</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Yuba College</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Sacramento State</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Sierra College</label>
+  <p>1. What animal is known as the “King of the Jungle”?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Lion</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Tiger</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Leopard</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Panther</label>
 
-  <p>2. What was Danny's first vehicle?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Pontiac Grand Am</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Chevrolet Celebrity</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Ford Thunderbird</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Honda Civic</label>
+  <p>2. What scale is commonly used to measure the intensity of earthquakes?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Richter</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Beaufort</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Fujita</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Kelvin</label>
 
-  <p>3. What was Danny's first job?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Mid Valley Ice</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Samuels Jewelers</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Radio Mart</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Mooney Farms</label>
+  <p>3. Which ancient Greek philosopher taught Alexander the Great?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Socrates</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Plato</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Pythagoras</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Aristotle</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,16 +162,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "C", q3: "D" };
+  const answers = { q1: "A", q2: "A", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
 
-  if (q1 === answers.q1) score += 0.5;
-  if (q2 === answers.q2) score += 0.5;
-  if (q3 === answers.q3) score += 0.5;
+  if (q1 === answers.q1) score += 1;
+  if (q2 === answers.q2) score += 2;
+  if (q3 === answers.q3) score += 3;
 
   localStorage.setItem("baseScore", String(score));
   localStorage.setItem("q1", q1);
