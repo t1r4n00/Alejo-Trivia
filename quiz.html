@@ -114,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. What gas do humans exhale as a waste product?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Oxygen</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Nitrogen</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Hydrogen</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Carbon dioxide</label>
+  <p>1. Which Mexican state is home to the city of Culiacán?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Sonora</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Sinaloa</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Nayarit</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Durango</label>
 
-  <p>2. In basic circuitry, what happens to total resistance when resistors are added in series?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Increases</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Decreases</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Stays the same</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Becomes zero</label>
+  <p>2. Which revolutionary leader was known as “El Caudillo del Sur”?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Pancho Villa</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Emiliano Zapata</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Venustiano Carranza</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Álvaro Obregón</label>
 
-  <p>3. In astronomy, what is the primary reason we see different constellations during different seasons?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Stars move rapidly around Earth</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Earth’s rotation axis changes weekly</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Earth orbits the Sun, changing our night‑sky viewpoint</label>
-  <label class="option"><input type="radio" name="q3" value="D"> The Moon blocks certain stars at different times</label>
+  <p>3. Which ancient city was the capital of the Zapotec civilization?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Palenque</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Teotihuacán</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Monte Albán</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Tulum</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,7 +162,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "A", q3: "C" };
+  const answers = { q1: "B", q2: "B", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
