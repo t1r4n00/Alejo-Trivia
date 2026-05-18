@@ -114,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. What animal is known as the “King of the Jungle”?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Lion</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Tiger</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Leopard</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Panther</label>
+  <p>1. What gas do humans exhale as a waste product?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Oxygen</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Nitrogen</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Hydrogen</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Carbon dioxide</label>
 
-  <p>2. What scale is commonly used to measure the intensity of earthquakes?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Richter</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Beaufort</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Fujita</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Kelvin</label>
+  <p>2. In basic circuitry, what happens to total resistance when resistors are added in series?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Increases</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Decreases</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Stays the same</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Becomes zero</label>
 
-  <p>3. Which ancient Greek philosopher taught Alexander the Great?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Socrates</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Plato</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Pythagoras</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Aristotle</label>
+  <p>3. In astronomy, what is the primary reason we see different constellations during different seasons?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Stars move rapidly around Earth</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Earth’s rotation axis changes weekly</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Earth orbits the Sun, changing our night‑sky viewpoint</label>
+  <label class="option"><input type="radio" name="q3" value="D"> The Moon blocks certain stars at different times</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,7 +162,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "A", q2: "A", q3: "D" };
+  const answers = { q1: "D", q2: "A", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
