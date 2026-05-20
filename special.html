@@ -2,141 +2,134 @@
 <html>
 <head>
 <meta charset="UTF-8">
-  <title>Español del Día</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Español del Día</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-      background: linear-gradient(180deg, #e8f7ff, #ffffff);
-      user-select: none;
-      text-align: center;
-    }
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background: linear-gradient(180deg, #e8f7ff, #ffffff);
+    user-select: none;
+    text-align: center;
+  }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: #0f3d57;
-      font-weight: bold;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
+  h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #0f3d57;
+    font-weight: bold;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
 
-    /* Season 4 Banner */
-    .seasonBanner {
-      display: inline-block;
-      background: linear-gradient(90deg, #6ecbff, #b5e8ff);
-      color: #0f3d57;
-      padding: 12px 26px;
-      border-radius: 40px;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 10px auto 25px auto;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
+  .seasonBanner {
+    display: inline-block;
+    background: linear-gradient(90deg, #6ecbff, #b5e8ff);
+    color: #0f3d57;
+    padding: 12px 26px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px auto 25px auto;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
 
-    /* Floating Timer */
-    #floatingTimer {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: #ff4d4d;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 50%;
-      font-size: 22px;
-      font-weight: bold;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-      z-index: 9999;
-    }
+  #floatingTimer {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: #ff4d4d;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    z-index: 9999;
+  }
 
-    /* Word */
-    .wordBox {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #333;
-    }
+  .wordBox {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
 
-    /* Mode selection block */
-    .optionBlock {
-      margin-bottom: 20px;
-      padding: 15px;
-      background: white;
-      border-radius: 8px;
-      border: 1px solid #bcd7e6;
-      text-align: left;
-    }
+  .optionBlock {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #bcd7e6;
+    text-align: left;
+  }
 
-    .optionBlock label {
-      display: block;
-      font-size: 18px;
-      padding: 10px;
-      border-radius: 6px;
-      transition: 0.2s;
-    }
+  .optionBlock label {
+    display: block;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.2s;
+  }
 
-    .optionBlock label:hover {
-      background: #e8f7ff;
-      border-color: #6ecbff;
-    }
+  .optionBlock label:hover {
+    background: #e8f7ff;
+    border-color: #6ecbff;
+  }
 
-    /* MCQ options */
-    #mcqBlock label {
-      display: block;
-      text-align: left;
-      background: #ffffff;
-      padding: 12px;
-      margin: 6px 0;
-      border-radius: 8px;
-      border: 1px solid #bcd7e6;
-      transition: 0.2s;
-      font-size: 18px;
-    }
+  #mcqBlock label {
+    display: block;
+    text-align: left;
+    background: #ffffff;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: 1px solid #bcd7e6;
+    transition: 0.2s;
+    font-size: 18px;
+  }
 
-    #mcqBlock label:hover {
-      background: #e8f7ff;
-      border-color: #6ecbff;
-    }
+  #mcqBlock label:hover {
+    background: #e8f7ff;
+    border-color: #6ecbff;
+  }
 
-    /* Written answer */
-    #writtenAnswer {
-      width: 100%;
-      padding: 15px;
-      font-size: 20px;
-      border-radius: 8px;
-      border: 1px solid #bcd7e6;
-      transition: 0.2s;
-    }
+  #writtenAnswer {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #bcd7e6;
+    transition: 0.2s;
+  }
 
-    #writtenAnswer:focus {
-      border-color: #6ecbff;
-      box-shadow: 0 0 6px rgba(110,203,255,0.5);
-    }
+  #writtenAnswer:focus {
+    border-color: #6ecbff;
+    box-shadow: 0 0 6px rgba(110,203,255,0.5);
+  }
 
-    /* Submit button */
-    button {
-      width: 100%;
-      padding: 15px;
-      font-size: 22px;
-      background: linear-gradient(90deg, #007be8, #0098ff);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      margin-top: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: 0.25s;
-    }
+  button {
+    width: 100%;
+    padding: 15px;
+    font-size: 22px;
+    background: linear-gradient(90deg, #007be8, #0098ff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.25s;
+  }
 
-    button:hover {
-      background: linear-gradient(90deg, #0069c7, #0084e0);
-      transform: translateY(-2px);
-    }
-  </style>
+  button:hover {
+    background: linear-gradient(90deg, #0069c7, #0084e0);
+    transform: translateY(-2px);
+  }
+</style>
 </head>
 <body>
 
@@ -145,18 +138,18 @@
 
 <div id="floatingTimer">20</div>
 
-<p class="wordBox">Translate to English: "Guaje" (not food)</p>
+<p class="wordBox">Translate to English: "Jarocho"</p>
 
 <div class="optionBlock">
   <label><input type="radio" name="mode" value="mcq"> Multiple Choice (+1)</label>
-  <label><input type="radio" name="mode" value="write"> Write the Answer(+2, +0.5 perfect spelling)</label>
+  <label><input type="radio" name="mode" value="write"> Write the Answer (+2, +0.5 perfect spelling)</label>
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> A type of clay pot</label>
-  <label><input type="radio" name="q4" value="B"> A small fishing net</label>
-  <label><input type="radio" name="q4" value="C"> A traditional hat</label>
-  <label><input type="radio" name="q4" value="D"> A gourd used as a container</label>
+  <label><input type="radio" name="q4" value="A"> A person who plays the accordion</label>
+  <label><input type="radio" name="q4" value="B"> A person who works in the fields</label>
+  <label><input type="radio" name="q4" value="C"> A person from Veracruz</label>
+  <label><input type="radio" name="q4" value="D"> A person who sells seafood</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -166,7 +159,6 @@
 <button onclick="submitSpecial()">Submit</button>
 
 <script>
-/* Your original JS — unchanged */
 let timeLeft = 20;
 let addedTime = false;
 let submitted = false;
@@ -235,7 +227,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "D") finalScore += 1;
+    if (q4 === "C") finalScore += 1;
   } else if (modeValue === "write") {
     q4_written = document.getElementById("writtenAnswer").value.trim();
   }
@@ -283,7 +275,6 @@ function submitSpecial(fromTimer = false) {
   document.body.appendChild(box);
 }
 
-/* Anti-cheat */
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("copy", e => e.preventDefault());
 document.addEventListener("cut", e => e.preventDefault());
