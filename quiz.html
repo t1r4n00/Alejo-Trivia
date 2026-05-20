@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Alejo Family Trivia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <style>
     body {
@@ -12,9 +12,17 @@
       margin: auto;
       background: linear-gradient(180deg, #e8f7ff, #ffffff);
       text-align: center;
+      user-select: none;
     }
 
-    /* Season 4 Banner */
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #0f3d57;
+      font-weight: bold;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
     .seasonBanner {
       display: inline-block;
       background: linear-gradient(90deg, #6ecbff, #b5e8ff);
@@ -29,21 +37,12 @@
       text-transform: uppercase;
     }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: #0f3d57;
-      font-weight: bold;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
     #welcomeName {
       font-size: 20px;
       margin-bottom: 20px;
       color: #444;
     }
 
-    /* Floating Timer */
     #floatingTimer {
       position: fixed;
       top: 15px;
@@ -55,18 +54,18 @@
       font-size: 22px;
       font-weight: bold;
       box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      z-index: 9999;
     }
 
-    /* Question text */
     p {
       font-size: 20px;
       color: #333;
       text-align: left;
       margin-top: 25px;
       margin-bottom: 10px;
+      font-weight: bold;
     }
 
-    /* Options */
     .option {
       display: block;
       text-align: left;
@@ -84,7 +83,6 @@
       border-color: #6ecbff;
     }
 
-    /* Submit Button */
     button {
       width: 100%;
       padding: 15px;
@@ -93,9 +91,9 @@
       color: white;
       border: none;
       border-radius: 8px;
+      margin-top: 25px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       transition: 0.25s;
-      margin-top: 25px;
     }
 
     button:hover {
@@ -111,26 +109,45 @@
 
 <p id="welcomeName"></p>
 
-<div id="floatingTimer">45</div>
+<div id="floatingTimer">60</div>
 
 <form id="quizForm">
-  <p>1. Which Mexican state is home to the city of Culiacán?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Sonora</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Sinaloa</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Nayarit</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Durango</label>
 
-  <p>2. Which revolutionary leader was known as “El Caudillo del Sur”?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Pancho Villa</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Emiliano Zapata</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Venustiano Carranza</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Álvaro Obregón</label>
+  <p>1. Which artist is known for the hit song “Just the Way You Are”?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> John Legend</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Bruno Mars</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Justin Timberlake</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Ne‑Yo</label>
 
-  <p>3. Which ancient city was the capital of the Zapotec civilization?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Palenque</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Teotihuacán</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Monte Albán</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Tulum</label>
+  <p>2. Which band is known for the hit song "Dream On"?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Aerosmith</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Journey</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Foreigner</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Bon Jovi</label>
+
+  <p>3. Which guitarist founded the self-named band The Experience?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Carlos Santana</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Jeff Beck</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Eric Clapton</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Jimi Hendrix</label>
+
+  <p>4. Which artist is known for the hit “Livin’ la Vida Loca”?</p>
+  <label class="option"><input type="radio" name="q4_main" value="A"> Chayanne</label>
+  <label class="option"><input type="radio" name="q4_main" value="B"> Enrique Iglesias</label>
+  <label class="option"><input type="radio" name="q4_main" value="C"> Luis Fonsi</label>
+  <label class="option"><input type="radio" name="q4_main" value="D"> Ricky Martin</label>
+
+  <p>5. Which band is famous for the song "El Triste"?</p>
+  <label class="option"><input type="radio" name="q5" value="A"> José José</label>
+  <label class="option"><input type="radio" name="q5" value="B"> Los Bukis</label>
+  <label class="option"><input type="radio" name="q5" value="C"> Los Ángeles Azules</label>
+  <label class="option"><input type="radio" name="q5" value="D"> Los Tigres del Norte</label>
+
+  <p>6. Which singer originally performed the classic "Volver, Volver"?</p>
+  <label class="option"><input type="radio" name="q6" value="A"> Pedro Infante</label>
+  <label class="option"><input type="radio" name="q6" value="B"> Luis Miguel</label>
+  <label class="option"><input type="radio" name="q6" value="C"> Javier Solís</label>
+  <label class="option"><input type="radio" name="q6" value="D"> Vicente Fernández</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -141,7 +158,7 @@ const savedName = localStorage.getItem("playerName") || "Unknown";
 document.getElementById("welcomeName").innerText = "Player: " + savedName;
 
 // Timer
-let timeLeft = 45;
+let timeLeft = 60;
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("floatingTimer").innerText = timeLeft;
@@ -162,26 +179,43 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "B", q3: "C" };
+  const answers = {
+    q1: "B",
+    q2: "A",
+    q3: "D",
+    q4_main: "D",
+    q5: "A",
+    q6: "D"
+  };
 
   let score = 0;
+
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
+  let q4_main = data.get("q4_main") || "";
+  let q5 = data.get("q5") || "";
+  let q6 = data.get("q6") || "";
 
-  if (q1 === answers.q1) score += 1;
-  if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 3;
+  if (q1 === answers.q1) score += 0.5;
+  if (q2 === answers.q2) score += 1;
+  if (q3 === answers.q3) score += 1.5;
+  if (q4_main === answers.q4_main) score += 0.5;
+  if (q5 === answers.q5) score += 1;
+  if (q6 === answers.q6) score += 1.5;
 
   localStorage.setItem("baseScore", String(score));
   localStorage.setItem("q1", q1);
   localStorage.setItem("q2", q2);
   localStorage.setItem("q3", q3);
+  localStorage.setItem("q4_main", q4_main);
+  localStorage.setItem("q5", q5);
+  localStorage.setItem("q6", q6);
 
   window.location.href = "special.html";
 }
 
-// Anti‑cheat basics
+// Anti‑cheat
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("copy", e => e.preventDefault());
 document.addEventListener("cut", e => e.preventDefault());
