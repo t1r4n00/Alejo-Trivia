@@ -114,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which dish is traditionally made with hominy and can be served rojo, blanco, or verde?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Birria</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Menudo</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Pozole</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Caldo de res</label>
+  <p>1. In the Jurassic Park franchise, what is the name of the island where the original park is located?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Isla Verde</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Isla Fortuna</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Isla Sorna</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Isla Nublar</label>
 
-  <p>2. Which state is traditionally known for originating the dish “chiles en nogada”?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Puebla</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Guanajuato</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Hidalgo</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Tlaxcala</label>
+  <p>2. Which actor voices the character Po in the "Kung Fu Panda" film series?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Jack Black</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Chris Pratt</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Seth Rogen</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Jonah Hill</label>
 
-  <p>3. Which city is known for the Pyramid of the Sun and the Pyramid of the Moon?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Palenque</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Tula</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Chichén Itzá</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Teotihuacán</label>
+  <p>3. Which actor voices the character of Miles Morales in "Spider-Man: Into the Spider-Verse?"</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Donald Glover</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Caleb McLaughlin</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Shameik Moore</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Lakeith Stanfield</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,7 +162,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "A", q3: "D" };
+  const answers = { q1: "D", q2: "A", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
