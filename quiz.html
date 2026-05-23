@@ -114,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which country has a national park where mail is delivered by mule?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Greece</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Nepal</label>
-  <label class="option"><input type="radio" name="q1" value="C"> United States</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Spain</label>
+  <p>1. Which planet is known as the Red Planet?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Mercury</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Jupiter</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Mars</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Venus</label>
 
-  <p>2. Which country has a museum dedicated entirely to failed inventions?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Japan</label>
-  <label class="option"><input type="radio" name="q2" value="B"> United States</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Sweden</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Belgium</label>
+  <p>2. Which country is home to the world’s tallest waterfall, Angel Falls?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Peru</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Venezuela</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Brazil</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Colombia</label>
 
-  <p>3. Which country has a hotel built entirely out of ice?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Sweden</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Canada</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Finland</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Norway</label>
+  <p>3. What is the term for animals that maintain a constant internal body temperature?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Endothermic</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Amphipathic</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Isotonic</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Ectothermic</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,16 +162,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "C", q3: "A" };
+  const answers = { q1: "C", q2: "B", q3: "A" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
 
-  if (q1 === answers.q1) score += 2;
+  if (q1 === answers.q1) score += 1;
   if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 2;
+  if (q3 === answers.q3) score += 3;
 
   localStorage.setItem("baseScore", String(score));
   localStorage.setItem("q1", q1);
