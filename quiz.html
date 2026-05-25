@@ -114,23 +114,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. What particle carries a negative electric charge?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Proton</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Neutron</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Electron</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Positron</label>
+  <p>1. Which country is traditionally associated with the dish tacos al pastor?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Mexico</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Spain</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Argentina</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Guatemala</label>
 
-  <p>2. Which organ is primarily responsible for filtering waste from the blood?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Liver</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Kidneys</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Pancreas</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Spleen</label>
+  <p>2. Which country is famous for 'goulash', a stew seasoned heavily with paprika?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Slovakia</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Romania</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Austria</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Hungary</label>
 
-  <p>3. Which atmospheric layer contains the ozone layer that absorbs most UV radiation?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Troposphere</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Stratosphere</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Mesosphere</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Thermosphere</label>
+  <p>3. Which country’s cuisine features 'arepas', cornmeal cakes that can be grilled, baked, or fried?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Mexico</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Guatemala</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Bolivia</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Colombia</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,7 +162,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "C", q2: "B", q3: "B" };
+  const answers = { q1: "A", q2: "D", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
