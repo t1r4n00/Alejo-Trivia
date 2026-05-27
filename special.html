@@ -139,52 +139,61 @@ document.querySelectorAll("input[name='mode']").forEach(r => {
   });
 });
 
-function submitSpecial() {
+function submitSpecial(fromTimer = false) {
   if (submitted) return;
   submitted = true;
   clearInterval(timer);
 
-  const baseScore = Number(localStorage.getItem("baseScore") || "0");
-  let finalScore = baseScore;
+  // Disable all inputs
+  document.querySelectorAll("input, button").forEach(el => el.disabled = true);
 
-  const mode = document.querySelector("input[name='mode']:checked");
-  if (!mode) {
-    alert("Select a mode first");
-    return;
+  const modeInput = document.querySelector("input[name='mode']:checked");
+  let modeValue = modeInput ? modeInput.value : null;
+
+  // If timer ended and no mode chosen
+  if (!modeValue) {
+    if (!fromTimer) {
+      alert("Please choose an answer type");
+      submitted = false;
+      document.querySelectorAll("input, button").forEach(el => el.disabled = false);
+      return;
+    } else {
+      modeValue = "none";
+    }
   }
 
-  const correctLetter = "A";
+  let finalScore = baseScore;
+  let q4 = "";
+  let q4_written = "";
 
-  if (mode.value === "mcq") {
-    const ans = document.querySelector("input[name='special']:checked");
-    if (ans && ans.value === correctLetter) {
+  // MCQ scoring
+  if (modeValue === "mcq") {
+    q4 = document.querySelector("input[name='q4']:checked")?.value || "";
+    if (q4 === "A") {
       finalScore += 1;
     }
   }
 
-  if (mode.value === "write") {
-    const text = document.getElementById("writtenAnswer").value.trim();
-    localStorage.setItem("writtenAnswer", text);
+  // Written answer (no auto points)
+  if (modeValue === "write" || modeValue === "mex") {
+    q4_written = document.getElementById("writtenAnswer").value.trim();
   }
-
-  localStorage.setItem("finalScore", finalScore.toString());
 
   // ---------------------------
   // SEND TO GOOGLE SHEETS
   // ---------------------------
   const payload = {
-    name: localStorage.getItem("playerName") || "",
-    baseScore: baseScore,
-    finalScore: finalScore,
-    q1: localStorage.getItem("q1") || "",
-    q2: localStorage.getItem("q2") || "",
-    q3: localStorage.getItem("q3") || "",
-    q4: localStorage.getItem("q4") || "",
-    q5: localStorage.getItem("q5") || "",
-    q6: localStorage.getItem("q6") || "",
-    specialMode: mode.value,
-    specialMCQ: document.querySelector("input[name='special']:checked")?.value || "",
-    specialWritten: document.getElementById("writtenAnswer").value.trim() || ""
+    name: name,
+    score: finalScore,
+    q1: q1,
+    q2: q2,
+    q3: q3,
+    q4_main: q4_main,
+    q5: q5,
+    q6: q6,
+    q4: q4,
+    q4_written: q4_written,
+    mode: modeValue
   };
 
   fetch("https://script.google.com/macros/s/AKfycbzYWhQMA4pYWXzivVfBLTURs5vHqXwWwdn2B8zQbJGcghXIF9ZuiyG4EbWbXZMkrRN_/exec", {
@@ -194,7 +203,42 @@ function submitSpecial() {
     body: JSON.stringify(payload)
   });
 
-  window.location.href = "results.html";
+  // ---------------------------
+  // SHOW FINAL SCORE ON SAME PAGE
+  // ---------------------------
+  const box = document.createElement("div");
+  box.style.marginTop = "30px";
+  box.style.padding = "25px";
+  box.style.background = "white";
+  box.style.borderRadius = "10px";
+  box.style.fontSize = "22px";
+  box.style.textAlign = "center";
+  box.style.boxShadow = "0 3px 10px rgba(0,0,0,0.15)";
+
+  if (modeValue === "mcq") {
+    box.innerHTML = `
+      <h2 style="color:#b03060;">All Done!</h2>
+      <p>Your final score is:</p>
+      <p style="font-size:42px; color:#b03060; font-weight:bold;">${finalScore}</p>
+    `;
+  } else if (modeValue === "none") {
+    box.innerHTML = `
+      <h2 style="color:#b03060;">Time's Up!</h2>
+      <p>No answer was selected.</p>
+      <p>Your score remains:</p>
+      <p style="font-size:42px; color:#b03060; font-weight:bold;">${baseScore}</p>
+    `;
+  } else {
+    box.innerHTML = `
+      <h2 style="color:#b03060;">Answer Submitted!</h2>
+      <p>Your score so far:</p>
+      <p style="font-size:42px; color:#b03060; font-weight:bold;">${baseScore}</p>
+      <p>Your written answer will be graded manually.</p>
+    `;
+  }
+
+  document.body.innerHTML = "";
+  document.body.appendChild(box);
 }
 </script>
 
