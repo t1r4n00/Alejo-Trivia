@@ -11,81 +11,50 @@
       max-width: 600px;
       margin: auto;
       background: linear-gradient(180deg, #f0f4ff, #ffffff);
-      user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 5px;
+      font-size: 30px;
+      margin-bottom: 10px;
       color: #1a3d8f;
       font-weight: bold;
     }
 
-    .seasonBanner {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff9acb, #ffd6e8);
-      color: #7a2e4d;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      letter-spacing: 1px;
-    }
+    /* 🌸 Season 3 Mother's Day Banner */
+.seasonBanner {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff9acb, #ffd6e8);
+  color: #7a2e4d;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  letter-spacing: 1px;
+}
 
-    #welcomeName {
-      text-align: center;
-      font-size: 20px;
-      margin-bottom: 20px;
-      font-weight: bold;
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 5px;
       color: #444;
     }
 
-    #floatingTimer {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: #d9534f;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 50px;
-      font-size: 22px;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      z-index: 9999;
-    }
-
-    p {
-      font-size: 19px;
-      margin-bottom: 10px;
-      color: #333;
-      font-weight: bold;
-    }
-
-    .option {
-      display: flex;
-      align-items: center;
-      padding: 12px;
-      background: white;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
+    h3 {
       font-size: 18px;
-      transition: 0.15s;
+      margin-bottom: 25px;
+      color: #666;
     }
 
-    .option:hover {
-      background: #eef4ff;
-      border-color: #bcd0ff;
-    }
-
-    .option input {
-      margin-right: 10px;
-      transform: scale(1.4);
+    input {
+      width: 100%;
+      padding: 15px;
+      font-size: 20px;
+      border-radius: 6px;
+      border: 1px solid #bbb;
+      margin-bottom: 20px;
     }
 
     button {
@@ -96,7 +65,6 @@
       color: white;
       border: none;
       border-radius: 6px;
-      margin-top: 20px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.15);
       transition: 0.2s;
     }
@@ -104,122 +72,60 @@
     button:hover {
       background: #155ec2;
     }
+
+    /* Sponsor Section */
+    #sponsorBox {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+    }
+
+    #sponsorBox img {
+      margin-top: 10px;
+      max-width: 160px;
+      height: auto;
+      border-radius: 6px;
+      opacity: 0.95;
+    }
   </style>
 </head>
 <body>
 
 <h1>Alejo Family Trivia</h1>
+
+<!-- ⭐ Season 2 Badge -->
 <div class="seasonBanner">SEASON 4</div>
 
-<p id="welcomeName"></p>
+<h2>Today's Topic: Music</h2>
+<h3>Time Limit: 60 - 80 Seconds</h3>
 
-<div id="floatingTimer">60</div>
+<p style="font-size:18px;">Enter your name to begin</p>
 
-<form id="quizForm">
-  <p>1. Which artist is known for the song “Royals”?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Billie Eilish</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Halsey</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Lorde</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Dua Lipa</label>
+<input id="playerName" type="text" placeholder="Your name">
 
-  <p>2. Which band is known for the song “Mr. Brightside”?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> The Killers</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Maroon 5</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Imagine Dragons</label>
-  <label class="option"><input type="radio" name="q2" value="D"> OneRepublic</label>
-
-  <p>3. Which singer‑songwriter wrote the track “Blowin’ in the Wind”?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Neil Young</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Bob Dylan</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Paul Simon</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Bruce Springsteen</label>
-
-  <p>4. Which artist is known for the song “Bailando”?</p>
-  <label class="option"><input type="radio" name="q4_main" value="A"> Ricky Martin</label>
-  <label class="option"><input type="radio" name="q4_main" value="B"> Luis Fonsi</label>
-  <label class="option"><input type="radio" name="q4_main" value="C"> Enrique Iglesias</label>
-  <label class="option"><input type="radio" name="q4_main" value="D"> Chayanne</label>
-
-  <p>5. Which band is famous for the song “Mi Razón de Ser”?</p>
-  <label class="option"><input type="radio" name="q5" value="A"> Banda MS</label>
-  <label class="option"><input type="radio" name="q5" value="B"> La Arrolladora Banda El Limón</label>
-  <label class="option"><input type="radio" name="q5" value="C"> Calibre 50</label>
-  <label class="option"><input type="radio" name="q5" value="D"> Banda El Recodo</label>
-
-  <p>6. Which composer wrote the song “Somos Novios”?</p>
-  <label class="option"><input type="radio" name="q6" value="A"> Roberto Cantoral</label>
-  <label class="option"><input type="radio" name="q6" value="B"> Armando Manzanero</label>
-  <label class="option"><input type="radio" name="q6" value="C"> Agustín Lara</label>
-  <label class="option"><input type="radio" name="q6" value="D"> Álvaro Carrillo</label>
-
-
-  <button type="button" onclick="submitQuiz()">Submit</button>
-</form>
+<button onclick="startQuiz()">Start Quiz</button>
 
 <script>
-// Load name
-const savedName = localStorage.getItem("playerName") || "Unknown";
-document.getElementById("welcomeName").innerText = "Player: " + savedName;
+  function startQuiz() {
+    const name = document.getElementById("playerName").value.trim();
 
-// Timer
-let timeLeft = 60;
-let timer = setInterval(() => {
-  timeLeft--;
-  document.getElementById("floatingTimer").innerText = timeLeft;
+    if (!name) {
+      alert("Please enter your name");
+      return;
+    }
 
-  if (timeLeft <= 0) {
-    clearInterval(timer);
-    submitQuiz();
+    localStorage.setItem("playerName", name);
+    window.location.href = "quiz.html";
   }
-}, 1000);
-
-let submitted = false;
-
-function submitQuiz() {
-  if (submitted) return;
-  submitted = true;
-  clearInterval(timer);
-
-  const form = document.getElementById("quizForm");
-  const data = new FormData(form);
-
-  const answers = { q1: "C", q2: "A", q3: "B", q4_main: "C", q5: "A", q6: "B" };
-
-  let score = 0;
-  let q1 = data.get("q1") || "";
-  let q2 = data.get("q2") || "";
-  let q3 = data.get("q3") || "";
-  let q4_main = data.get("q4_main") || "";
-  let q5 = data.get("q5") || "";
-  let q6 = data.get("q6") || "";
-
-  if (q1 === answers.q1) score += 0.5;
-  if (q2 === answers.q2) score += 1;
-  if (q3 === answers.q3) score += 1.5;
-  if (q4_main === answers.q4_main) score += 0.5;
-  if (q5 === answers.q5) score += 1;
-  if (q6 === answers.q6) score += 1.5;
-
-  // Store everything locally for the special page
-  localStorage.setItem("baseScore", String(score));
-  localStorage.setItem("q1", q1);
-  localStorage.setItem("q2", q2);
-  localStorage.setItem("q3", q3);
-  localStorage.setItem("q4_main", q4_main);
-  localStorage.setItem("q5", q5);
-  localStorage.setItem("q6", q6);
-
-  // Go to special page
-  window.location.href = "special.html";
-}
-
-// Anti‑cheat basics
-document.addEventListener("contextmenu", e => e.preventDefault());
-document.addEventListener("copy", e => e.preventDefault());
-document.addEventListener("cut", e => e.preventDefault());
-document.addEventListener("paste", e => e.preventDefault());
-document.addEventListener("selectstart", e => e.preventDefault());
 </script>
+
+<div id="sponsorBox">
+  <p>Sponsored by</p>
+  <img src="logo.png" alt="Sponsor Logo">
+</div>
 
 </body>
 </html>
