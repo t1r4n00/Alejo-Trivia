@@ -153,7 +153,7 @@ function submitSpecial() {
     return;
   }
 
-  const correctLetter = "C";
+  const correctLetter = "A";
 
   if (mode.value === "mcq") {
     const ans = document.querySelector("input[name='special']:checked");
@@ -168,6 +168,32 @@ function submitSpecial() {
   }
 
   localStorage.setItem("finalScore", finalScore.toString());
+
+  // ---------------------------
+  // SEND TO GOOGLE SHEETS
+  // ---------------------------
+  const payload = {
+    name: localStorage.getItem("playerName") || "",
+    baseScore: baseScore,
+    finalScore: finalScore,
+    q1: localStorage.getItem("q1") || "",
+    q2: localStorage.getItem("q2") || "",
+    q3: localStorage.getItem("q3") || "",
+    q4: localStorage.getItem("q4") || "",
+    q5: localStorage.getItem("q5") || "",
+    q6: localStorage.getItem("q6") || "",
+    specialMode: mode.value,
+    specialMCQ: document.querySelector("input[name='special']:checked")?.value || "",
+    specialWritten: document.getElementById("writtenAnswer").value.trim() || ""
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzYWhQMA4pYWXzivVfBLTURs5vHqXwWwdn2B8zQbJGcghXIF9ZuiyG4EbWbXZMkrRN_/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
   window.location.href = "results.html";
 }
 </script>
