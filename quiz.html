@@ -6,34 +6,34 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       padding: 20px;
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
-      background: linear-gradient(180deg, #f0f4ff, #ffffff);
+      background: linear-gradient(180deg, #0a0f24, #1a2340);
+      color: #e8ecff;
       user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
     }
 
     h1 {
       text-align: center;
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 5px;
-      color: #1a3d8f;
+      color: #6bb6ff;
       font-weight: bold;
+      text-shadow: 0 0 8px #1e90ff;
     }
 
     .seasonBanner {
       display: inline-block;
-      background: linear-gradient(90deg, #ff9acb, #ffd6e8);
-      color: #7a2e4d;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 18px;
+      background: linear-gradient(90deg, #00d4ff, #007bff);
+      color: #001a33;
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-size: 20px;
       font-weight: bold;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      margin-bottom: 25px;
+      box-shadow: 0 0 10px rgba(0, 180, 255, 0.6);
       letter-spacing: 1px;
     }
 
@@ -42,178 +42,158 @@
       font-size: 20px;
       margin-bottom: 20px;
       font-weight: bold;
-      color: #444;
+      color: #c7d6ff;
     }
 
     #floatingTimer {
       position: fixed;
       top: 10px;
       right: 10px;
-      background: #d9534f;
+      background: #ff3b3b;
       color: white;
-      padding: 10px 15px;
+      padding: 12px 18px;
       border-radius: 50px;
       font-size: 22px;
       font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
       z-index: 9999;
     }
 
     p {
-      font-size: 19px;
+      font-size: 20px;
       margin-bottom: 10px;
-      color: #333;
       font-weight: bold;
+      color: #d9e4ff;
     }
 
     .option {
       display: flex;
       align-items: center;
-      padding: 12px;
-      background: white;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(0, 150, 255, 0.3);
       font-size: 18px;
-      transition: 0.15s;
+      transition: 0.2s;
     }
 
     .option:hover {
-      background: #eef4ff;
-      border-color: #bcd0ff;
+      background: rgba(0, 150, 255, 0.15);
+      border-color: #1e90ff;
+      box-shadow: 0 0 8px rgba(0, 150, 255, 0.4);
     }
 
     .option input {
-      margin-right: 10px;
-      transform: scale(1.4);
+      margin-right: 12px;
+      transform: scale(1.5);
     }
 
     button {
       width: 100%;
-      padding: 15px;
+      padding: 16px;
       font-size: 22px;
-      background: #1a73e8;
+      background: #1e90ff;
       color: white;
       border: none;
-      border-radius: 6px;
-      margin-top: 20px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin-top: 25px;
+      box-shadow: 0 0 12px rgba(30, 144, 255, 0.6);
       transition: 0.2s;
+      font-weight: bold;
     }
 
     button:hover {
-      background: #155ec2;
+      background: #0f6ad4;
+      box-shadow: 0 0 16px rgba(30, 144, 255, 0.9);
     }
   </style>
 </head>
 <body>
 
 <h1>Alejo Family Trivia</h1>
-<div class="seasonBanner">SEASON 4</div>
+<div class="seasonBanner">SEASON 5</div>
 
 <p id="welcomeName"></p>
+<div id="floatingTimer">45</div>
 
-<div id="floatingTimer">60</div>
+<form id="quizForm"></form>
 
-<form id="quizForm">
-  <p>1. Which artist is known for the song “Royals”?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Billie Eilish</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Halsey</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Lorde</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Dua Lipa</label>
-
-  <p>2. Which band is known for the song “Mr. Brightside”?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> The Killers</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Maroon 5</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Imagine Dragons</label>
-  <label class="option"><input type="radio" name="q2" value="D"> OneRepublic</label>
-
-  <p>3. Which singer‑songwriter wrote the track “Blowin’ in the Wind”?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Neil Young</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Bob Dylan</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Paul Simon</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Bruce Springsteen</label>
-
-  <p>4. Which artist is known for the song “Bailando”?</p>
-  <label class="option"><input type="radio" name="q4_main" value="A"> Ricky Martin</label>
-  <label class="option"><input type="radio" name="q4_main" value="B"> Luis Fonsi</label>
-  <label class="option"><input type="radio" name="q4_main" value="C"> Enrique Iglesias</label>
-  <label class="option"><input type="radio" name="q4_main" value="D"> Chayanne</label>
-
-  <p>5. Which band is famous for the song “Mi Razón de Ser”?</p>
-  <label class="option"><input type="radio" name="q5" value="A"> Banda MS</label>
-  <label class="option"><input type="radio" name="q5" value="B"> La Arrolladora Banda El Limón</label>
-  <label class="option"><input type="radio" name="q5" value="C"> Calibre 50</label>
-  <label class="option"><input type="radio" name="q5" value="D"> Banda El Recodo</label>
-
-  <p>6. Which composer wrote the song “Somos Novios”?</p>
-  <label class="option"><input type="radio" name="q6" value="A"> Roberto Cantoral</label>
-  <label class="option"><input type="radio" name="q6" value="B"> Armando Manzanero</label>
-  <label class="option"><input type="radio" name="q6" value="C"> Agustín Lara</label>
-  <label class="option"><input type="radio" name="q6" value="D"> Álvaro Carrillo</label>
-
-
-  <button type="button" onclick="submitQuiz()">Submit</button>
-</form>
+<button onclick="submitQuiz()">Submit</button>
 
 <script>
-// Load name
+// ---------------------------
+// DEFINE QUESTIONS HERE
+// ---------------------------
+const questions = [
+  { name: "q1", text: "Which European country is home to the historic region of Transylvania?", answers: ["Serbia", "Romania", "Austria", "Hungary"], correct: "B", points: 1 },
+  { name: "q2", text: "Which ancient civilization built the city of Tenochtitlán on an island in Lake Texcoco?", answers: ["The Maya", "The Inca", "The Aztecs", "The Olmec"], correct: "C", points: 2 },
+  { name: "q3", text: "The 'Amber Road' primarily connected the Baltic region with which major ancient empire?", answers: ["The Roman Empire", "The Persian Empire", "The Byzantine Empire", "The Han Dynasty"], correct: "A", points: 3 }
+  // Add q4–q6 ONLY on 6‑question days
+];
+
+// ---------------------------
+// RENDER QUESTIONS
+// ---------------------------
+const form = document.getElementById("quizForm");
+
+questions.forEach((q, index) => {
+  const letter = ["A","B","C","D"];
+  let html = `<p>${index+1}. ${q.text}</p>`;
+  q.answers.forEach((ans, i) => {
+    html += `
+      <label class="option">
+        <input type="radio" name="${q.name}" value="${letter[i]}"> ${ans}
+      </label>`;
+  });
+  form.innerHTML += html;
+});
+
+// ---------------------------
+// LOAD NAME
+// ---------------------------
 const savedName = localStorage.getItem("playerName") || "Unknown";
 document.getElementById("welcomeName").innerText = "Player: " + savedName;
 
-// Timer
-let timeLeft = 60;
+// ---------------------------
+// TIMER
+// ---------------------------
+let timeLeft = 45;
+let submitted = false;
+
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("floatingTimer").innerText = timeLeft;
-
   if (timeLeft <= 0) {
     clearInterval(timer);
     submitQuiz();
   }
 }, 1000);
 
-let submitted = false;
-
+// ---------------------------
+// SUBMIT LOGIC
+// ---------------------------
 function submitQuiz() {
   if (submitted) return;
   submitted = true;
   clearInterval(timer);
 
-  const form = document.getElementById("quizForm");
   const data = new FormData(form);
-
-  const answers = { q1: "C", q2: "A", q3: "B", q4_main: "C", q5: "A", q6: "B" };
-
   let score = 0;
-  let q1 = data.get("q1") || "";
-  let q2 = data.get("q2") || "";
-  let q3 = data.get("q3") || "";
-  let q4_main = data.get("q4_main") || "";
-  let q5 = data.get("q5") || "";
-  let q6 = data.get("q6") || "";
 
-  if (q1 === answers.q1) score += 0.5;
-  if (q2 === answers.q2) score += 1;
-  if (q3 === answers.q3) score += 1.5;
-  if (q4_main === answers.q4_main) score += 0.5;
-  if (q5 === answers.q5) score += 1;
-  if (q6 === answers.q6) score += 1.5;
+  questions.forEach(q => {
+    const userAnswer = data.get(q.name) || "";
+    localStorage.setItem(q.name, userAnswer);
+    if (userAnswer === q.correct) score += q.points;
+  });
 
-  // Store everything locally for the special page
-  localStorage.setItem("baseScore", String(score));
-  localStorage.setItem("q1", q1);
-  localStorage.setItem("q2", q2);
-  localStorage.setItem("q3", q3);
-  localStorage.setItem("q4_main", q4_main);
-  localStorage.setItem("q5", q5);
-  localStorage.setItem("q6", q6);
-
-  // Go to special page
+  localStorage.setItem("baseScore", score.toString());
   window.location.href = "special.html";
 }
 
-// Anti‑cheat basics
+// ---------------------------
+// ANTI‑CHEAT
+// ---------------------------
 document.addEventListener("contextmenu", e => e.preventDefault());
 document.addEventListener("copy", e => e.preventDefault());
 document.addEventListener("cut", e => e.preventDefault());
