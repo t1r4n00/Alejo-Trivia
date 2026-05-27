@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Espa&ntildeol del Dia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Español del Día</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       padding: 20px;
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
-      background: linear-gradient(180deg, #ffe4f2, #ffffff);
+      background: linear-gradient(180deg, #0a0f24, #1a2340);
+      color: #e8ecff;
       user-select: none;
     }
 
     h1 {
       text-align: center;
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 5px;
-      color: #b03060;
+      color: #6bb6ff;
       font-weight: bold;
+      text-shadow: 0 0 8px #1e90ff;
     }
 
     .seasonBanner {
       display: inline-block;
-      background: linear-gradient(90deg, #ff9acb, #ffd6e8);
-      color: #7a2e4d;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 18px;
+      background: linear-gradient(90deg, #00d4ff, #007bff);
+      color: #001a33;
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-size: 20px;
       font-weight: bold;
-      margin: 10px auto 20px auto;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      margin: 10px auto 25px auto;
+      box-shadow: 0 0 10px rgba(0, 180, 255, 0.6);
       letter-spacing: 1px;
       text-align: center;
     }
@@ -40,213 +42,134 @@
       position: fixed;
       top: 10px;
       right: 10px;
-      background: #d9534f;
+      background: #ff3b3b;
       color: white;
-      padding: 10px 15px;
+      padding: 12px 18px;
       border-radius: 50px;
       font-size: 22px;
       font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
       z-index: 9999;
     }
 
-    .optionBlock {
+    .optionBlock, #mcqBlock, #writeBlock {
       margin-bottom: 20px;
       padding: 15px;
-      background: white;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 8px;
-      border: 1px solid #ddd;
+      border: 1px solid rgba(0, 150, 255, 0.3);
+      box-shadow: 0 0 8px rgba(0, 150, 255, 0.2);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 6px;
+      border: 1px solid #1e90ff;
+      background: rgba(255, 255, 255, 0.1);
+      color: #e8ecff;
     }
 
     button {
       width: 100%;
-      padding: 15px;
+      padding: 16px;
       font-size: 22px;
-      background: #b03060;
+      background: #1e90ff;
       color: white;
       border: none;
-      border-radius: 6px;
-      margin-top: 20px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin-top: 25px;
+      box-shadow: 0 0 12px rgba(30, 144, 255, 0.6);
+      transition: 0.2s;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #0f6ad4;
+      box-shadow: 0 0 16px rgba(30, 144, 255, 0.9);
     }
   </style>
 </head>
 <body>
 
-<h1>Espa&ntildeol del Dia</h1>
-<div class="seasonBanner">SEASON 4</div>
+<h1>Español del Día</h1>
+<div class="seasonBanner">SEASON 5</div>
 
 <div id="floatingTimer">20</div>
 
-<p style="font-size:20px; font-weight:bold;">
-  Translate to English: "Arrebolado"
-</p>
+<p>Translate to English: "Balin" (slang)</p>
 
 <div class="optionBlock">
   <label><input type="radio" name="mode" value="mcq"> Multiple Choice (1 pt)</label><br>
-  <label><input type="radio" name="mode" value="write"> Write the Answer (2 pts, +0.5 for perfect spelling)</label><br>
+  <label><input type="radio" name="mode" value="write"> Write the Answer (2 pts, +0.5 perfect spelling)</label>
 </div>
 
-<div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> Confused due to too much noise</label><br>
-  <label><input type="radio" name="q4" value="B"> Blushing or flushed, especially in the face</label><br>
-  <label><input type="radio" name="q4" value="C"> Covered in dust after working outdoors</label><br>
-  <label><input type="radio" name="q4" value="D"> Extremely tired after a long journey</label>
+<div id="mcqBlock" style="display:none;">
+  <label><input type="radio" name="special" value="A"> Extremely spicy</label><br>
+  <label><input type="radio" name="special" value="B"> Hard to understand</label><br>
+  <label><input type="radio" name="special" value="C"> Fake or low‑quality</label><br>
+  <label><input type="radio" name="special" value="D"> Very old</label>
 </div>
 
-<div id="writeBlock" style="display:none; margin-bottom:15px;">
-  <input id="writtenAnswer" type="text" placeholder="Type your answer" style="width:100%; padding:10px; font-size:18px;">
+<div id="writeBlock" style="display:none;">
+  <input id="writtenAnswer" type="text" placeholder="Type your answer">
 </div>
 
 <button onclick="submitSpecial()">Submit</button>
 
 <script>
 let timeLeft = 20;
-let addedTime = false;
 let submitted = false;
-let timer; // <-- GLOBAL so submitSpecial() can clear it
 
-const baseScore = Number(localStorage.getItem("baseScore") || "0");
-const name = localStorage.getItem("playerName") || "Unknown";
-const q1 = localStorage.getItem("q1") || "";
-const q2 = localStorage.getItem("q2") || "";
-const q3 = localStorage.getItem("q3") || "";
-const q4_main = localStorage.getItem("q4_main") || "";
-const q5 = localStorage.getItem("q5") || "";
-const q6 = localStorage.getItem("q6") || "";
-
-
-// Basic guard: if no baseScore, send them back
-if (!localStorage.getItem("baseScore")) {
-  document.body.innerHTML = "<h2 style='text-align:center;'>Session expired. Please start again.</h2>";
-} else {
-  // Timer
-  // Timer
-timer = setInterval(() => {
+let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("floatingTimer").innerText = timeLeft;
-
   if (timeLeft <= 0) {
     clearInterval(timer);
-    submitSpecial(true); // <-- tell it this came from the timer
+    submitSpecial();
   }
 }, 1000);
-}
 
-// Mode switching (LOCKS mode once chosen)
 document.querySelectorAll("input[name='mode']").forEach(r => {
   r.addEventListener("change", () => {
     const mode = r.value;
-
     document.getElementById("mcqBlock").style.display = mode === "mcq" ? "block" : "none";
-    document.getElementById("writeBlock").style.display = (mode === "write" || mode === "mex") ? "block" : "none";
-
-    if ((mode === "write" || mode === "mex") && !addedTime) {
-      timeLeft += 5;
-      addedTime = true;
-    }
-
-    document.querySelectorAll("input[name='mode']").forEach(m => m.disabled = true);
+    document.getElementById("writeBlock").style.display = mode === "write" ? "block" : "none";
   });
 });
 
-function submitSpecial(fromTimer = false) {
+function submitSpecial() {
   if (submitted) return;
   submitted = true;
   clearInterval(timer);
 
-  document.querySelectorAll("input, button").forEach(el => el.disabled = true);
-
-  const modeInput = document.querySelector("input[name='mode']:checked");
-  let modeValue = modeInput ? modeInput.value : null;
-
-  // If time ran out and no mode was chosen, still submit as "none"
-  if (!modeValue) {
-    if (!fromTimer) {
-      // User clicked button with no selection
-      alert("Please choose an answer type");
-      submitted = false;
-      document.querySelectorAll("input, button").forEach(el => el.disabled = false);
-      return;
-    } else {
-      // Timer-based submit with no choice
-      modeValue = "none";
-    }
-  }
-
+  const baseScore = Number(localStorage.getItem("baseScore") || "0");
   let finalScore = baseScore;
-  let q4 = "";
-  let q4_written = "";
 
-  if (modeValue === "mcq") {
-    q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "B") {
-      finalScore += 1; // MCQ bonus
+  const mode = document.querySelector("input[name='mode']:checked");
+  if (!mode) {
+    alert("Select a mode first");
+    return;
+  }
+
+  const correctLetter = "C";
+
+  if (mode.value === "mcq") {
+    const ans = document.querySelector("input[name='special']:checked");
+    if (ans && ans.value === correctLetter) {
+      finalScore += 1;
     }
-  } else if (modeValue === "write" || modeValue === "mex") {
-    q4_written = document.getElementById("writtenAnswer").value.trim();
   }
 
-  const payload = {
-    name: name,
-    score: finalScore,
-    q1: q1,
-    q2: q2,
-    q3: q3,
-    q4_main: q4_main,
-    q5: q5,
-    q6: q6,
-    q4: q4,
-    q4_written: q4_written,
-    mode: modeValue
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbzYWhQMA4pYWXzivVfBLTURs5vHqXwWwdn2B8zQbJGcghXIF9ZuiyG4EbWbXZMkrRN_/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-
-  const box = document.createElement("div");
-  box.style.marginTop = "30px";
-  box.style.padding = "20px";
-  box.style.background = "white";
-  box.style.borderRadius = "8px";
-  box.style.fontSize = "22px";
-  box.style.textAlign = "center";
-
-  if (modeValue === "mcq") {
-    box.innerHTML = `
-      <h2>All Done!</h2>
-      <p>Your final score is:</p>
-      <p style="font-size:40px; color:#b03060; font-weight:bold;">${finalScore}</p>
-    `;
-  } else if (modeValue === "none") {
-    box.innerHTML = `
-      <h2>Time's Up!</h2>
-      <p>No answer was selected in time.</p>
-      <p>Current score: <strong>${baseScore}</strong></p>
-    `;
-  } else {
-    box.innerHTML = `
-      <h2>Answer Submitted!</h2>
-      <p>Current score: <strong>${baseScore}</strong></p>
-      <p>Final score will be determined based on your written answer.</p>
-    `;
+  if (mode.value === "write") {
+    const text = document.getElementById("writtenAnswer").value.trim();
+    localStorage.setItem("writtenAnswer", text);
   }
 
-  document.body.innerHTML = "";
-  document.body.appendChild(box);
+  localStorage.setItem("finalScore", finalScore.toString());
+  window.location.href = "results.html";
 }
-
-
-// Anti‑cheat basics
-document.addEventListener("contextmenu", e => e.preventDefault());
-document.addEventListener("copy", e => e.preventDefault());
-document.addEventListener("cut", e => e.preventDefault());
-document.addEventListener("paste", e => e.preventDefault());
-document.addEventListener("selectstart", e => e.preventDefault());
 </script>
 
 </body>
