@@ -98,7 +98,9 @@
 
 <div id="floatingTimer">20</div>
 
-<p>Translate to English: "Balin" (slang)</p>
+<p style="font-size:20px; font-weight:bold;">
+  Translate to English: “Balín” (slang)
+</p>
 
 <div class="optionBlock">
   <label><input type="radio" name="mode" value="mcq"> Multiple Choice (1 pt)</label><br>
@@ -119,6 +121,22 @@
 <button onclick="submitSpecial()">Submit</button>
 
 <script>
+// ---------------------------
+// LOAD QUIZ DATA SAFELY
+// ---------------------------
+const baseScore = Number(localStorage.getItem("baseScore") || "0");
+const name = localStorage.getItem("playerName") || "Unknown";
+
+const q1 = localStorage.getItem("q1") || "";
+const q2 = localStorage.getItem("q2") || "";
+const q3 = localStorage.getItem("q3") || "";
+const q4 = localStorage.getItem("q4") || "";
+const q5 = localStorage.getItem("q5") || "";
+const q6 = localStorage.getItem("q6") || "";
+
+// ---------------------------
+// TIMER
+// ---------------------------
 let timeLeft = 20;
 let submitted = false;
 
@@ -127,10 +145,13 @@ let timer = setInterval(() => {
   document.getElementById("floatingTimer").innerText = timeLeft;
   if (timeLeft <= 0) {
     clearInterval(timer);
-    submitSpecial();
+    submitSpecial(true);
   }
 }, 1000);
 
+// ---------------------------
+// MODE SWITCHING
+// ---------------------------
 document.querySelectorAll("input[name='mode']").forEach(r => {
   r.addEventListener("change", () => {
     const mode = r.value;
@@ -139,18 +160,19 @@ document.querySelectorAll("input[name='mode']").forEach(r => {
   });
 });
 
+// ---------------------------
+// SUBMIT LOGIC
+// ---------------------------
 function submitSpecial(fromTimer = false) {
   if (submitted) return;
   submitted = true;
   clearInterval(timer);
 
-  // Disable all inputs
   document.querySelectorAll("input, button").forEach(el => el.disabled = true);
 
   const modeInput = document.querySelector("input[name='mode']:checked");
   let modeValue = modeInput ? modeInput.value : null;
 
-  // If timer ended and no mode chosen
   if (!modeValue) {
     if (!fromTimer) {
       alert("Please choose an answer type");
@@ -163,36 +185,29 @@ function submitSpecial(fromTimer = false) {
   }
 
   let finalScore = baseScore;
-  let q4 = "";
-  let q4_written = "";
+  let specialMCQ = "";
+  let specialWritten = "";
 
-  // MCQ scoring
   if (modeValue === "mcq") {
-    q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "A") {
+    specialMCQ = document.querySelector("input[name='special']:checked")?.value || "";
+    if (specialMCQ === "C") {
       finalScore += 1;
     }
   }
 
-  // Written answer (no auto points)
-  if (modeValue === "write" || modeValue === "mex") {
-    q4_written = document.getElementById("writtenAnswer").value.trim();
+  if (modeValue === "write") {
+    specialWritten = document.getElementById("writtenAnswer").value.trim();
   }
 
   // ---------------------------
   // SEND TO GOOGLE SHEETS
   // ---------------------------
   const payload = {
-    name: name,
+    name,
     score: finalScore,
-    q1: q1,
-    q2: q2,
-    q3: q3,
-    q4_main: q4_main,
-    q5: q5,
-    q6: q6,
-    q4: q4,
-    q4_written: q4_written,
+    q1, q2, q3, q4, q5, q6,
+    specialMCQ,
+    specialWritten,
     mode: modeValue
   };
 
@@ -217,22 +232,22 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     box.innerHTML = `
-      <h2 style="color:#b03060;">All Done!</h2>
+      <h2 style="color:#6bb6ff;">All Done!</h2>
       <p>Your final score is:</p>
-      <p style="font-size:42px; color:#b03060; font-weight:bold;">${finalScore}</p>
+      <p style="font-size:42px; color:#6bb6ff; font-weight:bold;">${finalScore}</p>
     `;
   } else if (modeValue === "none") {
     box.innerHTML = `
-      <h2 style="color:#b03060;">Time's Up!</h2>
+      <h2 style="color:#6bb6ff;">Time's Up!</h2>
       <p>No answer was selected.</p>
       <p>Your score remains:</p>
-      <p style="font-size:42px; color:#b03060; font-weight:bold;">${baseScore}</p>
+      <p style="font-size:42px; color:#6bb6ff; font-weight:bold;">${baseScore}</p>
     `;
   } else {
     box.innerHTML = `
-      <h2 style="color:#b03060;">Answer Submitted!</h2>
+      <h2 style="color:#6bb6ff;">Answer Submitted!</h2>
       <p>Your score so far:</p>
-      <p style="font-size:42px; color:#b03060; font-weight:bold;">${baseScore}</p>
+      <p style="font-size:42px; color:#6bb6ff; font-weight:bold;">${baseScore}</p>
       <p>Your written answer will be graded manually.</p>
     `;
   }
@@ -240,6 +255,15 @@ function submitSpecial(fromTimer = false) {
   document.body.innerHTML = "";
   document.body.appendChild(box);
 }
+
+// ---------------------------
+// ANTI‑CHEAT
+// ---------------------------
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("copy", e => e.preventDefault());
+document.addEventListener("cut", e => e.preventDefault());
+document.addEventListener("paste", e => e.preventDefault());
+document.addEventListener("selectstart", e => e.preventDefault());
 </script>
 
 </body>
