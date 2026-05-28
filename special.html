@@ -235,6 +235,7 @@ function submitSpecial(fromTimer = false) {
       <h2 style="color:#6bb6ff;">All Done!</h2>
       <p>Your final score is:</p>
       <p style="font-size:42px; color:#6bb6ff; font-weight:bold;">${finalScore}</p>
+      <p>You selected: <strong>${specialMCQ}</strong></p>
     `;
   } else if (modeValue === "none") {
     box.innerHTML = `
@@ -248,6 +249,8 @@ function submitSpecial(fromTimer = false) {
       <h2 style="color:#6bb6ff;">Answer Submitted!</h2>
       <p>Your score so far:</p>
       <p style="font-size:42px; color:#6bb6ff; font-weight:bold;">${baseScore}</p>
+      <p>Your written answer:</p>
+      <p style="font-size:26px; color:#6bb6ff;"><strong>${specialWritten}</strong></p>
       <p>Your written answer will be graded manually.</p>
     `;
   }
