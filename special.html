@@ -186,10 +186,15 @@ function submitSpecial(fromTimer = false) {
 
   let finalScore = baseScore;
   let specialMCQ = "";
+  let specialMCQText = "";
   let specialWritten = "";
 
   if (modeValue === "mcq") {
-    specialMCQ = document.querySelector("input[name='special']:checked")?.value || "";
+    const selected = document.querySelector("input[name='special']:checked");
+    if (selected) {
+      specialMCQ = selected.value;
+      specialMCQText = selected.parentNode.textContent.trim();
+    }
     if (specialMCQ === "C") {
       finalScore += 1;
     }
@@ -207,6 +212,7 @@ function submitSpecial(fromTimer = false) {
     score: finalScore,
     q1, q2, q3, q4, q5, q6,
     specialMCQ,
+    specialMCQText,
     specialWritten,
     mode: modeValue
   };
@@ -235,7 +241,7 @@ function submitSpecial(fromTimer = false) {
       <h2 style="color:#6bb6ff;">All Done!</h2>
       <p>Your final score is:</p>
       <p style="font-size:42px; color:#6bb6ff; font-weight:bold;">${finalScore}</p>
-      <p>You selected: <strong>${specialMCQ}</strong></p>
+      <p>You selected: <strong>${specialMCQ} – ${specialMCQText}</strong></p>
     `;
   } else if (modeValue === "none") {
     box.innerHTML = `
