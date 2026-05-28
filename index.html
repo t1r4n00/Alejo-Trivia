@@ -6,46 +6,46 @@
 
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       padding: 20px;
-      max-width: 650px;
+      max-width: 600px;
       margin: auto;
-      background: linear-gradient(180deg, #0a0f24, #1a2340);
+      background: linear-gradient(180deg, #f0f4ff, #ffffff);
       text-align: center;
-      color: #e8ecff;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 10px;
-      color: #6bb6ff;
+      color: #1a3d8f;
       font-weight: bold;
-      text-shadow: 0 0 8px #1e90ff;
     }
 
-    .seasonBanner {
-      display: inline-block;
-      background: linear-gradient(90deg, #00d4ff, #007bff);
-      color: #001a33;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 25px;
-      box-shadow: 0 0 10px rgba(0, 180, 255, 0.6);
-      letter-spacing: 1px;
-    }
+    /* 🌸 Season 3 Mother's Day Banner */
+.seasonBanner {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff9acb, #ffd6e8);
+  color: #7a2e4d;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  letter-spacing: 1px;
+}
+
 
     h2 {
       font-size: 22px;
       margin-bottom: 5px;
-      color: #c7d6ff;
+      color: #444;
     }
 
     h3 {
       font-size: 18px;
       margin-bottom: 25px;
-      color: #9fb4ff;
+      color: #666;
     }
 
     input {
@@ -53,38 +53,34 @@
       padding: 15px;
       font-size: 20px;
       border-radius: 6px;
-      border: 1px solid #1e90ff;
-      background: rgba(255, 255, 255, 0.1);
-      color: #e8ecff;
+      border: 1px solid #bbb;
       margin-bottom: 20px;
-      box-shadow: 0 0 8px rgba(30,144,255,0.3);
     }
 
     button {
       width: 100%;
       padding: 15px;
       font-size: 22px;
-      background: #1e90ff;
+      background: #1a73e8;
       color: white;
       border: none;
       border-radius: 6px;
-      box-shadow: 0 0 12px rgba(30,144,255,0.6);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
       transition: 0.2s;
-      font-weight: bold;
     }
 
     button:hover {
-      background: #0f6ad4;
-      box-shadow: 0 0 16px rgba(30,144,255,0.9);
+      background: #155ec2;
     }
 
+    /* Sponsor Section */
     #sponsorBox {
       margin-top: 40px;
       padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.2);
+      border-top: 1px solid #ccc;
       text-align: center;
       font-size: 18px;
-      color: #c7d6ff;
+      color: #555;
     }
 
     #sponsorBox img {
@@ -92,8 +88,7 @@
       max-width: 160px;
       height: auto;
       border-radius: 6px;
-      opacity: 0.9;
-      box-shadow: 0 0 10px rgba(0,150,255,0.4);
+      opacity: 0.95;
     }
   </style>
 </head>
@@ -101,12 +96,13 @@
 
 <h1>Alejo Family Trivia</h1>
 
+<!-- ⭐ Season 2 Badge -->
 <div class="seasonBanner">SEASON 5</div>
 
 <h2>Today's Topic: World History</h2>
 <h3>Time Limit: 45 Seconds</h3>
 
-<p style="font-size:18px; color:#d9e4ff;">Enter your name to begin</p>
+<p style="font-size:18px;">Enter your name to begin</p>
 
 <input id="playerName" type="text" placeholder="Your name">
 
