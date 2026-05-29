@@ -109,30 +109,30 @@
 <body>
 
 <h1>Alejo Family Trivia</h1>
-<div class="seasonBanner">SEASON 3</div>
+<div class="seasonBanner">SEASON 5</div>
 
 <p id="welcomeName"></p>
 
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which European country is home to the historic region of Transylvania?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Serbia</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Romania</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Austria</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Hungary</label>
+  <p>1. Which character is known for saying the line "This is the way" in The Mandalorian?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Din Djarin</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Moff Gideon</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Cara Dune</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Boba Fett</label>
 
-  <p>2. Which ancient civilization built the city of Tenochtitlán on an island in Lake Texcoco?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> The Maya</label>
-  <label class="option"><input type="radio" name="q2" value="B"> The Inca</label>
-  <label class="option"><input type="radio" name="q2" value="C"> The Aztecs</label>
-  <label class="option"><input type="radio" name="q2" value="D"> The Olmec</label>
+  <p>2. In the Harry Potter films, which artifact allows its user to revisit memories?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> The Time-Turner</label>
+  <label class="option"><input type="radio" name="q2" value="B"> The Pensieve</label>
+  <label class="option"><input type="radio" name="q2" value="C"> The Mirror of Erised</label>
+  <label class="option"><input type="radio" name="q2" value="D"> The Elder Wand</label>
 
-  <p>3. The 'Amber Road' primarily connected the Baltic region with which major ancient empire?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> The Roman Empire</label>
-  <label class="option"><input type="radio" name="q3" value="B"> The Persian Empire</label>
-  <label class="option"><input type="radio" name="q3" value="C"> The Byzantine Empire</label>
-  <label class="option"><input type="radio" name="q3" value="D"> The Han Dynasty</label>
+  <p>3. In Blade Runner 2049, what is the name of the AI companion that K interacts with?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Ava</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Eve</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Joi</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Luma</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,7 +164,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "C", q3: "A" };
+  const answers = { q1: "A", q2: "B", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
