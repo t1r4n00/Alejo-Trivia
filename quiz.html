@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which of these has Nana done?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Gone to 69 concerts</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Crashed on a pit bike</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Biked 30 miles within 70 minutes</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Painted a house</label>
+  <p>1. Which continent is the only one without any native reptiles or snakes?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Antarctica</label>
+  <label class="option"><input type="radio" name="q1" value="B"> South America</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Asia</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Europe</label>
 
-  <p>2. If Nana could do anything she wanted for a living, what would it be?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Film composer</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Nothing</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Deep sea diver</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Tattoo artist</label>
+  <p>2. Which scientist is known for discovering the law of gravity?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Niels Bohr</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Isaac Newton</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Albert Einstein</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Galileo Galilei</label>
 
-  <p>3. What subject did Nana hate the most in school?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Math</label>
-  <label class="option"><input type="radio" name="q3" value="B"> English</label>
-  <label class="option"><input type="radio" name="q3" value="C"> History</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Science</label>
+  <p>3. Which empire built the Royal Road to improve communication and trade?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Ottoman</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Mongol</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Roman</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Persian</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,16 +164,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "D", q2: "A", q3: "A" };
+  const answers = { q1: "A", q2: "B", q3: "D" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
 
-  if (q1 === answers.q1) score += 0.5;
-  if (q2 === answers.q2) score += 0.5;
-  if (q3 === answers.q3) score += 0.5;
+  if (q1 === answers.q1) score += 1;
+  if (q2 === answers.q2) score += 2;
+  if (q3 === answers.q3) score += 3;
 
   // Store everything locally for the special page
   localStorage.setItem("baseScore", String(score));
