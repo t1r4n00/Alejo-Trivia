@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which continent is the only one without any native reptiles or snakes?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Antarctica</label>
-  <label class="option"><input type="radio" name="q1" value="B"> South America</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Asia</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Europe</label>
+  <p>1. What does a barometer measure?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Humidity</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Wind speed</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Air pressure</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Temperature</label>
 
-  <p>2. Which scientist is known for discovering the law of gravity?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Niels Bohr</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Isaac Newton</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Albert Einstein</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Galileo Galilei</label>
+  <p>2. Which part of the cell is responsible for packaging and distributing proteins?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Nucleus</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Endoplasmic reticulum</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Ribosome</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Golgi apparatus</label>
 
-  <p>3. Which empire built the Royal Road to improve communication and trade?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Ottoman</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Mongol</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Roman</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Persian</label>
+  <p>3. In physics, what does the law of conservation of energy state?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Energy increases over time in a closed system</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Energy cannot be created or destroyed, only transformed</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Energy can be created but not destroyed</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Energy can be destroyed but not created</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,7 +164,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "A", q2: "B", q3: "D" };
+  const answers = { q1: "C", q2: "D", q3: "B" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
