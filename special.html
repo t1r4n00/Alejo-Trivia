@@ -145,7 +145,7 @@
 
 <div id="floatingTimer">20</div>
 
-<p class="wordBox">Translate to English: "Cuateado" (slang)</p>
+<p class="wordBox">Translate to English: "Guajolotero" (slang)</p>
 
 <div class="optionBlock">
   <label><input type="radio" name="mode" value="mcq"> Multiple Choice (+1)</label>
@@ -153,10 +153,10 @@
 </div>
 
 <div id="mcqBlock" style="display:none; margin-bottom:15px;">
-  <label><input type="radio" name="q4" value="A"> Very friendly or close with someone</label>
-  <label><input type="radio" name="q4" value="B"> Overly dramatic</label>
-  <label><input type="radio" name="q4" value="C"> Broken or damaged</label>
-  <label><input type="radio" name="q4" value="D"> Easily confused</label>
+  <label><input type="radio" name="q4" value="A"> A small farming tool</label>
+  <label><input type="radio" name="q4" value="B"> A bus that makes many stops</label>
+  <label><input type="radio" name="q4" value="C"> A type of rural musician</label>
+  <label><input type="radio" name="q4" value="D"> A person who sells tamales</label>
 </div>
 
 <div id="writeBlock" style="display:none; margin-bottom:15px;">
@@ -235,7 +235,7 @@ function submitSpecial(fromTimer = false) {
 
   if (modeValue === "mcq") {
     q4 = document.querySelector("input[name='q4']:checked")?.value || "";
-    if (q4 === "A") finalScore += 1;
+    if (q4 === "B") finalScore += 1;
   } else if (modeValue === "write") {
     q4_written = document.getElementById("writtenAnswer").value.trim();
   }
