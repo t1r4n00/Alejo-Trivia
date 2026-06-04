@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alejo Family Trivia</title>
+  <title>Family Trivia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -113,45 +113,26 @@
 
 <p id="welcomeName"></p>
 
-<div id="floatingTimer">60</div>
+<div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which artist is known for the hit song “Havana”?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Camila Cabello</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Selena Gomez</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Ariana Grande</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Demi Lovato</label>
+  <p>1. What is traditionally eaten during Día de Muertos?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Pan de muerto</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Bolillo</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Concha</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Oreja</label>
 
-  <p>2. Which band is famous for the song “Use Somebody”?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> The Fray</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Coldplay</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Imagine Dragons</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Kings of Leon</label>
+  <p>2. Which city hosts the annual National Silver Fair?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Zacatecas</label>
+  <label class="option"><input type="radio" name="q2" value="B"> Durango</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Taxco</label>
+  <label class="option"><input type="radio" name="q2" value="D"> San Luis Potosí</label>
 
-  <p>3. Which singer‑songwriter released the album “Blue” in 1971?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Carole King</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Stevie Nicks</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Joni Mitchell</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Carly Simon</label>
-
-  <p>4. Which artist is known for “Danza Kuduro”?</p>
-  <label class="option"><input type="radio" name="q4_main" value="A"> Wisin</label>
-  <label class="option"><input type="radio" name="q4_main" value="B"> Daddy Yankee</label>
-  <label class="option"><input type="radio" name="q4_main" value="C"> Don Omar</label>
-  <label class="option"><input type="radio" name="q4_main" value="D"> Tito El Bambino</label>
-
-  <p>5. Which group is famous for the song “La Chona”?</p>
-  <label class="option"><input type="radio" name="q5" value="A"> Banda MS</label>
-  <label class="option"><input type="radio" name="q5" value="B"> Calibre 50</label>
-  <label class="option"><input type="radio" name="q5" value="C"> Los Ángeles Azules</label>
-  <label class="option"><input type="radio" name="q5" value="D"> Los Tucanes de Tijuana</label>
-
-  <p>6. Which composer wrote the bolero “Sabor a Mí”?</p>
-  <label class="option"><input type="radio" name="q6" value="A"> Agustín Lara</label>
-  <label class="option"><input type="radio" name="q6" value="B"> Álvaro Carrillo</label>
-  <label class="option"><input type="radio" name="q6" value="C"> Consuelo Velázquez</label>
-  <label class="option"><input type="radio" name="q6" value="D"> Roberto Cantoral</label>
-
+  <p>3. Which ingredient comes from toasted and ground insects?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Chapulín powder</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Epazote</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Achiote paste</label>
+  <label class="option"><input type="radio" name="q3" value="D"> Huitlacoche</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -162,7 +143,7 @@ const savedName = localStorage.getItem("playerName") || "Unknown";
 document.getElementById("welcomeName").innerText = "Player: " + savedName;
 
 // Timer
-let timeLeft = 60;
+let timeLeft = 45;
 let timer = setInterval(() => {
   timeLeft--;
   document.getElementById("floatingTimer").innerText = timeLeft;
@@ -183,31 +164,22 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "A", q2: "D", q3: "C", q4_main: "C", q5: "D", q6: "B" };
+  const answers = { q1: "A", q2: "C", q3: "A" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
-  let q4_main = data.get("q4_main") || "";
-  let q5 = data.get("q5") || "";
-  let q6 = data.get("q6") || "";
 
-  if (q1 === answers.q1) score += 0.5;
-  if (q2 === answers.q2) score += 1;
-  if (q3 === answers.q3) score += 1.5;
-  if (q4_main === answers.q4_main) score += 0.5;
-  if (q5 === answers.q5) score += 1;
-  if (q6 === answers.q6) score += 1.5;
+  if (q1 === answers.q1) score += 1;
+  if (q2 === answers.q2) score += 2;
+  if (q3 === answers.q3) score += 3;
 
   // Store everything locally for the special page
   localStorage.setItem("baseScore", String(score));
   localStorage.setItem("q1", q1);
   localStorage.setItem("q2", q2);
   localStorage.setItem("q3", q3);
-  localStorage.setItem("q4_main", q4_main);
-  localStorage.setItem("q5", q5);
-  localStorage.setItem("q6", q6);
 
   // Go to special page
   window.location.href = "special.html";
