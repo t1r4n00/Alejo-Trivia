@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. In the movie "Finding Nemo," what kind of fish is Nemo?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Angelfish</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Clownfish</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Butterflyfish</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Parrotfish</label>
+  <p>1. Which country has a restaurant that operates inside a volcanic cave where the heat from the volcano is used to cook the food?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> Italy</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Japan</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Spain</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Chile</label>
 
-  <p>2. Which actor voices the character Donkey in the "Shrek" film series?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Kevin Hart</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Martin Lawrence</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Chris Rock</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Eddie Murphy</label>
+  <p>2. Which country has a centuries‑old tradition where citizens build giant human towers reaching up to 10 meters tall during festivals?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Spain</label>
+  <label class="option"><input type="radio" name="q2" value="B"> India</label>
+  <label class="option"><input type="radio" name="q2" value="C"> Peru</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Portugal</label>
 
-  <p>3. In "Blade Runner 2049," what is the name of the corporation responsible for manufacturing replicants?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Tyrell Corporation</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Blue Sun Corporation</label>
-  <label class="option"><input type="radio" name="q3" value="C"> Weyland Industries</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Wallace Corporation</label>
+  <p>3. Which country has a hotel that offers open-air "rooms" with no walls?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> Finland</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Japan</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Switzerland</label>
+  <label class="option"><input type="radio" name="q3" value="D"> New Zealand</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,16 +164,16 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "D", q3: "D" };
+  const answers = { q1: "C", q2: "A", q3: "C" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
   let q2 = data.get("q2") || "";
   let q3 = data.get("q3") || "";
 
-  if (q1 === answers.q1) score += 1;
+  if (q1 === answers.q1) score += 2;
   if (q2 === answers.q2) score += 2;
-  if (q3 === answers.q3) score += 3;
+  if (q3 === answers.q3) score += 2;
 
   // Store everything locally for the special page
   localStorage.setItem("baseScore", String(score));
