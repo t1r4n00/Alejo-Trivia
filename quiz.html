@@ -116,23 +116,23 @@
 <div id="floatingTimer">45</div>
 
 <form id="quizForm">
-  <p>1. Which organ in the human body is primarily responsible for pumping blood?</p>
-  <label class="option"><input type="radio" name="q1" value="A"> Liver</label>
-  <label class="option"><input type="radio" name="q1" value="B"> Heart</label>
-  <label class="option"><input type="radio" name="q1" value="C"> Kidney</label>
-  <label class="option"><input type="radio" name="q1" value="D"> Lung</label>
+  <p>1. Which country is traditionally associated with the dish 'gnocchi'?</p>
+  <label class="option"><input type="radio" name="q1" value="A"> France</label>
+  <label class="option"><input type="radio" name="q1" value="B"> Argentina</label>
+  <label class="option"><input type="radio" name="q1" value="C"> Greece</label>
+  <label class="option"><input type="radio" name="q1" value="D"> Italy</label>
 
-  <p>2. Which scientist is credited with discovering penicillin in 1928?</p>
-  <label class="option"><input type="radio" name="q2" value="A"> Gregor Mendel</label>
-  <label class="option"><input type="radio" name="q2" value="B"> Louis Pasteur</label>
-  <label class="option"><input type="radio" name="q2" value="C"> Alexander Fleming</label>
-  <label class="option"><input type="radio" name="q2" value="D"> Marie Curie</label>
+  <p>2. Which country is famous for the dish 'bibimbap', a mixed rice bowl topped with vegetables, meat, and egg?</p>
+  <label class="option"><input type="radio" name="q2" value="A"> Japan</label>
+  <label class="option"><input type="radio" name="q2" value="B"> China</label>
+  <label class="option"><input type="radio" name="q2" value="C"> South Korea</label>
+  <label class="option"><input type="radio" name="q2" value="D"> Vietnam</label>
 
-  <p>3. Which scientist first proposed the idea of Pangaea?</p>
-  <label class="option"><input type="radio" name="q3" value="A"> Charles Lyell</label>
-  <label class="option"><input type="radio" name="q3" value="B"> Alfred Wegener</label>
-  <label class="option"><input type="radio" name="q3" value="C"> James Hutton</label>
-  <label class="option"><input type="radio" name="q3" value="D"> Ernest Rutherford</label>
+  <p>3. Which country is known for the dish 'bobotie', a baked spiced meat dish with an egg-based topping?</p>
+  <label class="option"><input type="radio" name="q3" value="A"> South Africa</label>
+  <label class="option"><input type="radio" name="q3" value="B"> Australia</label>
+  <label class="option"><input type="radio" name="q3" value="C"> Kenya</label>
+  <label class="option"><input type="radio" name="q3" value="D"> India</label>
 
   <button type="button" onclick="submitQuiz()">Submit</button>
 </form>
@@ -164,7 +164,7 @@ function submitQuiz() {
   const form = document.getElementById("quizForm");
   const data = new FormData(form);
 
-  const answers = { q1: "B", q2: "C", q3: "B" };
+  const answers = { q1: "D", q2: "C", q3: "A" };
 
   let score = 0;
   let q1 = data.get("q1") || "";
